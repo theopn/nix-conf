@@ -1,6 +1,20 @@
 { pkgs, ... }:
 {
 
+  environment.systemPackages = [
+    pkgs.bat
+    pkgs.btop
+    pkgs.fastfetch
+    pkgs.lf
+    pkgs.neovim
+    pkgs.fish
+  ];
+
+  users.users.theopn = {
+    name = "theopn";
+    home = "/Users/theopn";
+  };
+
   fonts.packages = with pkgs; [
     nerd-fonts.proggy-clean-tt
     nerd-fonts.fantasque-sans-mono
@@ -103,14 +117,6 @@
     # Delete unspecified Homebrew formulae
     onActivation.cleanup = "zap";
   };
-
-  environment.systemPackages = [
-    pkgs.lf
-    pkgs.neovim
-  ];
-
-  programs.zsh.enable = true;
-  programs.fish.enable = true;
 
   system.primaryUser = "theopn";
   system.defaults = {
