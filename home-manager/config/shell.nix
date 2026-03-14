@@ -18,44 +18,55 @@
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
-    # enableFishIntegration = true;
+    enableFishIntegration = true;
 
     settings = {
+      format = "$character$directory([ $git_branch$git_status ](bg:grey fg:black)) ❱ ";
       add_newline = false;
-      format = "$vi_mode$directory([ $git_branch$git_status ](bg:blue fg:black))$character";
-      vi_mode = {
-        disabled = false;
-        format = "$symbol";
-        insert_symbol = "[ I ](bg:green fg:black)";
-        normal_symbol = "[ N ](bg:cyan fg:black)";
+      follow_symlinks = true;
+      palette = "nordfox";
+      palettes."nordfox" = {
+        black   = "#232831";  # bg0
+        white   = "#ABB1BB";  # fg2
+        grey    = "#7E8188";  # fg3
+        cyan    = "#88C0D0";
+        green   = "#A3BE8C";
+        purple  = "#B48EAD";
+        red     = "#BF616A";
+        blue    = "#81A1C1";
+        yellow  = "#ebcb8b";
+      };
+
+      character = {
+        success_symbol = "[ I ](bg:blue fg:bold black)";
+        error_symbol = "[ I ](bg:red fg:bold black)";
+        vimcmd_symbol = "[ N ](bg:green fg:bold black)";
+        vimcmd_replace_symbol = "[ R ](bg:purple fg:bold black)";
+        vimcmd_replace_one_symbol = "[ R ](bg:purple fg:bold black)";
+        vimcmd_visual_symbol = "[ V ](bg:yellow fg:bold black)";
       };
       directory = {
-        format = "[ $path ]($style)";
-        style = "bg:black fg:cyan";
+        format = "[ $path$read_only ]($style)";
+        style = "bg:black fg:bold white";
         truncation_length = 5;
-        truncation_symbol = "…/";
+        truncation_symbol = ".../";
       };
       git_branch = {
-        format = "$branch";
-        symbol = ""; # Removes the default  icon to match your original prompt
+        format = "$symbol$branch";
+        symbol = "";
       };
       git_status = {
         format = "$all_status";
-        modified = "*";
-        staged = "+";
-        untracked = ""; # Hides untracked files to keep it strictly to * and +
-      };
-      character = {
-        format = " $symbol ";
-        success_symbol = "[❱](white)";
-        error_symbol = "[❱](red)";
-        vicmd_symbol = "[❱](white)"; # Keeps the chevron white when you switch to normal mode
       };
     };
   };
 
   programs.zsh = {
     enable = true;
+
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
 
     history = {
       size = 10000;
