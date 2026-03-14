@@ -1,0 +1,63 @@
+# Theo's Nix Flakes
+
+I got peer-pressured to using Nix, so here is my attempt at migrating my [other dotfiles repository](https://github.com/theopn/dotfiles) to Nix.
+
+## Wittgenstein (Framework 13 w/ AMD Ryzen ~AI~ 5 340)
+
+```
+                                                  ┌────────────┐
+                                               ┌─►│hardware.nix│
+                                               │  └────────────┘
+                                               │  ┌───────────┐
+ ┌───────────┐     ┌───────────────────────────┼─►│desktop.nix│
+ │           │     │                           │  └───────────┘
+ │ flake.nix ├────►│ hosts/w/configuration.nix │  ┌────────────┐
+ │           │     │                           ├─►│services.nix│
+ └───────────┘     └───────────────────────────┤  └────────────┘
+                                               │  ┌───┐
+                                               └─►│...│
+                                                  └───┘
+```
+
+### Minimal Install with LUKS
+
+## Beauvoir (M4 Mac Mini)
+
+```
+ ┌───────────┐     ┌───────────────────────────┬
+ │           │     │                           │
+ │ flake.nix ├────►│ hosts/b/configuration.nix │
+ │           │     │                           │
+ └───────────┘     └───────────────────────────┘
+```
+
+Uses `nix-darwin`
+
+### Determinate Nix Installation & Bootstrap
+
+```sh
+curl -fsSL https://install.determinate.systems/nix | sh -s -- install
+nix run nix-darwin -- switch --flake .#beauvoir
+```
+
+## Home-manager
+
+```
+                                          ┌───────┐
+                                      ┌──►│lib.nix│
+                                      │   └───────┘
+ ┌───────────┐     ┌──────────────────┤   ┌─────────┐
+ │           │     │                  ├──►│shell.nix│
+ │ flake.nix ├────►│ home/default.nix │   └─────────┘
+ │           │     │                  │   ┌──────────┐
+ └───────────┘     └──────────────────┼──►│neovim.nix│
+                                      │   └──────────┘
+                                      │   ┌───┐
+                                      └──►│...│
+                                          └───┘
+```
+
+## Credits
+
+- Broken diagrams generated using [asciiflow](https://asciiflow.com/)
+
