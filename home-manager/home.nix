@@ -18,6 +18,7 @@
 
     # GUI tools
     ./config/wezterm.nix
+    ./config/zathura.nix
 
     # macOS specific
     ./config/aerospace.nix
