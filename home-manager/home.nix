@@ -6,6 +6,7 @@
     # Config written in pure Nix
     ./config/fzf-fd-rg.nix
     ./config/shell.nix
+    ./config/fastfetch.nix
 
     # symlinks
     ./config/nvim.nix
