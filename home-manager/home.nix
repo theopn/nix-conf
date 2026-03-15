@@ -23,6 +23,7 @@
   # ++ lib.optionals pkgs.stdenv.isDarwin [
   # ];
 
+  programs.man.generateCaches = lib.mkIf pkgs.stdenv.isDarwin false;
   programs.home-manager.enable = true;
 
 
