@@ -7,16 +7,17 @@
 
     settings = {
       user = {
-        name  = "Theo P.";
+        name  = "Theo Park";
         email = "theo.park.n@gmail.com";
       };
       core ={
-#excludesfile = ~/.gitignore_global;
         editor = "nvim";
         pager = "nvim -R +'set nomodifiable noswapfile nocursorcolumn nonumber norelativenumber scrolloff=999' +'set ft=git' -";
         autocrlf = "input";
       };
-# delete outdated branches during fetch
+      # Disable color escape code since I use neovim as a pager
+      color.pager = false;
+      # delete outdated branches during fetch
       fetch.prune = true;
       init.defaultBranch = "main";
       status.short = true;
@@ -27,35 +28,35 @@
 
     ignores =[
       ".DS_Store"
-        ".idea/"
-        "*.xml"
-        "*.iml"
-        "*.class"
-        "./auto/*"
-        "*~"
-        "npm-debug.log"
-        "*.aux"
-        "*.lof"
-        "*.log"
-        "*.lot"
-        "*.fls"
-        "*.out"
-        "*.toc"
-        "*.fmt"
-        "*.fot"
-        "*.cb"
-        "*.cb2"
-        ".*.lb"
-        "*fdb_latexmk"
-        "*.synctex.gz"
-        "latex.out/"
-        "_minted/"
-        "*.bbl"
-        "*.bcf"
-        "*.blg"
-        "*-blx.aux"
-        "*-blx.bib"
-        "*.run.xml"
+      ".idea/"
+      "*.xml"
+      "*.iml"
+      "*.class"
+      "./auto/*"
+      "*~"
+      "npm-debug.log"
+      "*.aux"
+      "*.lof"
+      "*.log"
+      "*.lot"
+      "*.fls"
+      "*.out"
+      "*.toc"
+      "*.fmt"
+      "*.fot"
+      "*.cb"
+      "*.cb2"
+      ".*.lb"
+      "*fdb_latexmk"
+      "*.synctex.gz"
+      "latex.out/"
+      "_minted/"
+      "*.bbl"
+      "*.bcf"
+      "*.blg"
+      "*-blx.aux"
+      "*-blx.bib"
+      "*.run.xml"
     ];
   };
 }
