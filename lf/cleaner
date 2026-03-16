@@ -1,4 +1,0 @@
-#!/bin/sh
-if [ "$TERM" == "xterm-kitty" ]; then
-  exec kitten icat --clear --stdin no --transfer-mode memory </dev/null >/dev/tty
-fi
