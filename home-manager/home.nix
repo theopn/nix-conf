@@ -25,6 +25,7 @@
     ./config/ripgrep.nix
     ./config/bat.nix
     ./config/btop.nix
+    ./config/misc-pkgs.nix
 
     # Shell related
     ./config/starship.nix
