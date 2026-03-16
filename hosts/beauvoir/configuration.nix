@@ -35,7 +35,7 @@ in
       #"intellij-idea"
       "macvim-app"
       #"rstudio"
-      "wezterm"
+      #"wezterm"
 
       # Fun
       "discord"
