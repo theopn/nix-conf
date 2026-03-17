@@ -4,6 +4,16 @@
     tree
     git-filter-repo
     poppler-utils
+    exiftool
+    openconnect
+    stow
+    ffmpeg
+    imagemagick
+    #tmux
+    hugo
+    figlet
+    wget
+    qemu
 
     zathuraPkgs.zathura_pdf_poppler
     (texlive.combine {
