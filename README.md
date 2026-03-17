@@ -4,34 +4,18 @@ I got peer-pressured to using Nix, so here is my attempt at migrating my [other 
 
 ## Wittgenstein (Framework 13 w/ AMD Ryzen ~AI~ 5 340)
 
-```
-                                                  ┌────────────┐
-                                               ┌─►│hardware.nix│
-                                               │  └────────────┘
-                                               │  ┌───────────┐
- ┌───────────┐     ┌───────────────────────────┼─►│desktop.nix│
- │           │     │                           │  └───────────┘
- │ flake.nix ├────►│ hosts/w/configuration.nix │  ┌────────────┐
- │           │     │                           ├─►│services.nix│
- └───────────┘     └───────────────────────────┤  └────────────┘
-                                               │  ┌───┐
-                                               └─►│...│
-                                                  └───┘
-```
+- `hosts/wittgenstein/configuration.nix`: main NixOS configuration; hardware services, user & environment, etc.
+- `hosts/wittgenstein/hardware-configuration.nix`: hardware configuration for Framework 13 AMD + modifications to use `/dev/by-label` and LUKS encryption
+- `hosts/wittgenstein/idkwhattoname.nix`: every other services, packages, and settings
 
-### Minimal Install with LUKS
+### Minimal NixOS Installation with LUKS
+
+TODO
 
 ## Beauvoir (M4 Mac Mini)
 
-```
- ┌───────────┐     ┌───────────────────────────┬
- │           │     │                           │
- │ flake.nix ├────►│ hosts/b/configuration.nix │
- │           │     │                           │
- └───────────┘     └───────────────────────────┘
-```
-
-Uses `nix-darwin`
+- `hosts/beauvoir/configuration.nix`: `nix-darwin` configuration with Homebrew casks and system settings
+- `hosts/beauvoir/aerospace.nix`: Nix translation of my Aerospace config
 
 ### Determinate Nix Installation & Bootstrap
 
@@ -42,22 +26,11 @@ nix run nix-darwin -- switch --flake .#beauvoir
 
 ## Home-manager
 
-```
-                                          ┌───────┐
-                                      ┌──►│lib.nix│
-                                      │   └───────┘
- ┌───────────┐     ┌──────────────────┤   ┌─────────┐
- │           │     │                  ├──►│shell.nix│
- │ flake.nix ├────►│ home/default.nix │   └─────────┘
- │           │     │                  │   ┌──────────┐
- └───────────┘     └──────────────────┼──►│neovim.nix│
-                                      │   └──────────┘
-                                      │   ┌───┐
-                                      └──►│...│
-                                          └───┘
-```
+Largely the Nix rewrite of my [original dotfiles repository](https://github.com/theopn/dotfiles), but I tried to
 
-## Credits
+1. use Nix modules whenever possible
+2. unlike my original dotfiles, prefer third-party tools
+3, only keep the features I use
 
-- Broken diagrams generated using [asciiflow](https://asciiflow.com/)
+It's cross-platform other than some Linux specific tools (e.g., keychian)
 
