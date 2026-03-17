@@ -62,6 +62,7 @@ in
 
     gnomeExtensions.paperwm
 
+    vlc gimp
     kicad
     vim
     alacritty
@@ -79,11 +80,13 @@ in
 
       "text/*" = "neovide.desktop";
 
-      "inode/directory" = "lf.desktop";
+      "video/*" = "vlc.desktop";
 
       "image/*" = [
-        "sxiv.desktop"
+        "org.gnome.Loupe.desktop"
         "gimp.desktop"
       ];
+
+      "inode/directory" = "lf.desktop";
     };
 }
