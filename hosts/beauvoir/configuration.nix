@@ -13,6 +13,12 @@ in
     home = "/Users/theopn";
   };
 
+  environment.variables = {
+    EDITOR = "nvim";
+    MANPAGER = "nvim +Man!";
+    LESSHISTFILE = "-";
+  };
+
   fonts.packages = with pkgs; [
     nerd-fonts.proggy-clean-tt
     nerd-fonts.fantasque-sans-mono

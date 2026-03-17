@@ -5,17 +5,10 @@
   xdg.enable = true;
 
   home.sessionVariables = {
-    EDITOR = "nvim";
-    MANPAGER = "nvim +Man!";
-    LESSHISTFILE = "-";
     DOT_DIR = "${config.home.homeDirectory}/dotfiles";
     THEOSHELL_TRASH_DIR = "${config.xdg.dataHome}/theoshell/trash";
     THEOSHELL_CDF_DIR = "${config.xdg.dataHome}/theoshell/cd-fav.txt";
   };
-
-  home.sessionPath = [
-    "${config.home.homeDirectory}/.local/bin"
-  ];
 
   imports = [
     # Tools

@@ -5,10 +5,12 @@
       ./idkwhattoname.nix
     ];
 
+
   # Boot settings
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
+
 
   # networking & time
   networking.hostName = "wittgenstein";
@@ -16,23 +18,6 @@
   time.timeZone = "America/New_York";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  # Minimal GNOME
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
-  environment.gnome.excludePackages = with pkgs; [
-    gnome-calculator gnome-clocks simple-scan snapshot gnome-characters
-    # Totem = video, loupe = image
-    totem gnome-music evince gnome-font-viewer loupe
-    # baobab = disk usage
-    baobab gnome-disk-utility gnome-system-monitor gnome-logs gnome-connections
-    # geary = email
-    geary gnome-contacts gnome-calendar gnome-weather gnome-maps
-    # yelp = help
-    gnome-text-editor yelp gnome-tour gnome-usage gnome-terminal gnome-console
-    # cheese = camera, epiphany = browser
-    cheese epiphany
-  ];
-  programs.niri.enable = true;
 
   # Hardware services
   services.fwupd.enable = true;
@@ -55,16 +40,47 @@
     touchpad.naturalScrolling = true;
   };
 
+
   # Other services
   services.openssh.enable = true;
 
-  # User
+
+  # Minimal GNOME
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
+  environment.gnome.excludePackages = with pkgs; [
+    gnome-calculator gnome-clocks simple-scan snapshot gnome-characters
+    # Totem = video, loupe = image
+    totem gnome-music evince gnome-font-viewer loupe
+    # baobab = disk usage
+    baobab gnome-disk-utility gnome-system-monitor gnome-logs gnome-connections
+    # geary = email
+    geary gnome-contacts gnome-calendar gnome-weather gnome-maps
+    # yelp = help
+    gnome-text-editor yelp gnome-tour gnome-usage gnome-terminal gnome-console
+    # cheese = camera, epiphany = browser
+    cheese epiphany
+  ];
+  programs.niri.enable = true;
+
+
+  # Me
   programs.zsh.enable = true;
   users.users.theopn = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "input" ];
     shell = pkgs.zsh;
   };
+
+
+  # Environment variables
+  environment.localBinInPath = true;  # add ~/.local/bin to $PATH
+  environment.variables = {
+    EDITOR = "nvim";
+    MANPAGER = "nvim +Man!";
+    LESSHISTFILE = "-";
+  };
+
 
   # Nix settings
   nixpkgs.config.allowUnfree = true;
