@@ -39,11 +39,10 @@
     # needs to be migrated to Nix
     ./config/nvim.nix
     ./config/lf.nix
+
+    ## Linux only
+    ./config/keychain.nix
   ];
-  # ++ lib.optionals pkgs.stdenv.isLinux [
-  # ]
-  # ++ lib.optionals pkgs.stdenv.isDarwin [
-  # ];
 
   programs.man.generateCaches = lib.mkIf pkgs.stdenv.isDarwin false;
   programs.home-manager.enable = true;
