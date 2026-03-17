@@ -33,6 +33,10 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = false;
   services.blueman.enable = true;
+  # https://knowledgebase.frame.work/optimizing-fedora-battery-life-r1baXZh
+  services.tuned.enable = true;
+  services.tlp.enable = false;
+  services.upower.enable = true;
   services.printing.enable = true;
   services.pipewire = {
     enable = true;
@@ -58,8 +62,8 @@
   # System packages
   programs.firefox.enable = true;
   environment.systemPackages = with pkgs; [
-    curl wget gcc gdb git
-    gnumake zip unzip file
+    curl wget gcc gdb git killall
+    gnumake zip unzip file jq
     vim
     alacritty
   ];
