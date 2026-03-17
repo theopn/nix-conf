@@ -55,7 +55,8 @@ in
     # Niri related
     xwayland-satellite
     dunst rofi swaybg swaylock swayidle waybar
-    copyq pavucontrol playerctl gammastep wf-recorder networkmanagerapplet
+    copyq pavucontrol playerctl gammastep networkmanagerapplet
+    grim slurp sway-contrib.grimshot wf-recorder wl-clipboard-rs
     newBrightnessctl #brightnessctl
 
     # Nvim LSP
@@ -78,6 +79,7 @@ in
   };
 
   # default applications
+  # ls -l /run/current-system/sw/share/applications/ /etc/profiles/per-user/${USER}/share/applications/
   xdg.mime.defaultApplications = {
       "text/html" = "firefox.desktop";
       "application/xhtm+xml" = "firefox.desktop";
