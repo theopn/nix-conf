@@ -1,26 +1,6 @@
-# Stuff
+# other stuff
 { config, pkgs, ... }:
-let
-  # Fetch relatively new brightnessctl since the old one doesn't support -get flag
-  # https://github.com/hummer12007/brightnessctl/issues/90
-  newBrightnessctl = pkgs.brightnessctl.overrideAttrs (old: {
-    version = "git";
-    src = pkgs.fetchFromGitHub {
-      owner = "Hummer12007";
-      repo = "brightnessctl";
-      rev = "e70bc55cf053caa285695ac77507e009b5508ee3";
-      sha256 = "sha256-agteP/YPlTlH8RwJ9P08pwVYY+xbHApv9CpUKL4K0U0=";
-    };
-    postPatch = ''
-      substituteInPlace configure \
-        --replace-fail "pkg-config" "$PKG_CONFIG"
 
-      substituteInPlace 90-brightnessctl.rules \
-        --replace-fail /bin/ ${pkgs.coreutils}/bin/
-    '';
-    configurePhase = "./configure --enable-logind";
-  });
-in
 {
 
   # Packages and services
@@ -51,12 +31,6 @@ in
     # Propritery apps
     chromium discord slack spotify zoom-us
 
-    # Niri related
-    xwayland-satellite
-    pavucontrol playerctl networkmanagerapplet
-    grim slurp sway-contrib.grimshot wf-recorder wl-clipboard-rs
-    newBrightnessctl #brightnessctl
-
     # Nvim LSP
     tree-sitter bash-language-server
     # order matters since both provides `clangd` command
@@ -67,14 +41,6 @@ in
     vim
     alacritty
   ];
-
-  # Niri & Portal
-  programs.niri.enable = true;
-  xdg.portal = {
-    enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
-    config.common.default = [ "gnome" "gtk" ];
-  };
 
   # default applications
   # ls -l /run/current-system/sw/share/applications/ /etc/profiles/per-user/${USER}/share/applications/

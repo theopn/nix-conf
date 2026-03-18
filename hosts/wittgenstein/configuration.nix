@@ -3,6 +3,7 @@
   imports = [
       ./hardware-configuration.nix
       ./idkwhattoname.nix
+      ./niri.nix
       ./tailscale.nix
     ];
 
