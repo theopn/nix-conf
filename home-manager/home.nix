@@ -36,6 +36,7 @@
     ## Linux only
     ./config/keychain.nix
     ./config/dunst.nix
+    ./config/gammastep.nix
     ./config/waybar.nix
   ];
 
