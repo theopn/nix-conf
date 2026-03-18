@@ -45,7 +45,8 @@ in
     enable = true;
     settings = {
       daemonize = true;
-      #ignore-empty-password = true;
+      # allows fingerprint sensor -> RET to unlock
+      ignore-empty-password = false;
       show-failed-attempts = true;
       show-keyboard-layout = true;
       scaling = "fill";
