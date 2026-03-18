@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, config, ... }:
 
 let
   set-wallpaper = pkgs.writeShellScriptBin "set-wallpaper.sh" ''

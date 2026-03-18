@@ -1,4 +1,5 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, ... }:
+
 let
   previewer = pkgs.writeShellScriptBin "pv.sh" ''
     file="$1"

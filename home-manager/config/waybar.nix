@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, ... }:
 
 let
   # All scripts in https://github.com/theopn/haunted-tiles/tree/niri
