@@ -27,11 +27,12 @@ in
       kb-remove-char-back = "BackSpace";
 
       line-margin = 10;
-      display-ssh = "";
-      display-run = "";
-      display-drun = "";
-      display-window = "";
-      display-combi = "";
+      display-ssh = " ";
+      display-run = " ";
+      display-drun = " ";
+      display-window = " ";
+      display-combi = " ";
+      display-calc = " ";
       show-icons = true;
     };
 
