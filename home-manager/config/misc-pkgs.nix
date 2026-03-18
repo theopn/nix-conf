@@ -3,10 +3,10 @@
   home.packages = with pkgs; [
     tree
     git-filter-repo
-    poppler-utils
+    poppler-utils       # actual poppler (pdftotext, etc.)
     exiftool
     openconnect
-    stow
+    #stow
     #figlet
     ffmpeg
     imagemagick
@@ -15,10 +15,12 @@
     figlet
     wget
 
-    #nodejs_24
+    nodejs_24
+    python3
     #r
-    #cargo
-    #rustc
+    cargo
+    rustc
+    sqlite
     qemu
 
     zathuraPkgs.zathura_pdf_poppler

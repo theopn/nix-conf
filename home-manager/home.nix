@@ -19,7 +19,6 @@
     ./config/lf.nix
     ./config/ripgrep.nix
     ./config/zathura.nix
-    ./config/misc-pkgs.nix
 
     # Terminal & Shell
     ./config/kitty.nix
@@ -28,6 +27,8 @@
     ./config/fish.nix
     ./config/fastfetch.nix
     ./config/neovide.nix
+
+    ./config/misc-pkgs.nix
 
     # needs to be migrated to Nix
     ./config/nvim.nix
