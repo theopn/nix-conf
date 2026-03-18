@@ -33,7 +33,6 @@ in
   programs.firefox.enable = true;
   programs.thunderbird.enable = true;
 
-  services.tailscale.enable = true;
   services.syncthing = {
     enable = true;
     user = "theopn";
