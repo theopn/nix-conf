@@ -1,7 +1,5 @@
 { pkgs, lib, config, ... }:
 {
-  #nixpkgs.config.allowUnfree = true;
-
   xdg.enable = true;
 
   home.sessionVariables = {
@@ -41,7 +39,7 @@
     #./config/niri.nix
     ./config/rofi.nix
     ./config/swayidle.nix
-    #./config/swaylock.nix
+    ./config/swaylock.nix
     ./config/waybar.nix
   ];
 
