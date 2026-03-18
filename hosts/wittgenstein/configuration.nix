@@ -3,6 +3,7 @@
   imports = [
       ./hardware-configuration.nix
       ./idkwhattoname.nix
+      ./tailscale.nix
     ];
 
 
@@ -17,17 +18,6 @@
   networking.networkmanager.enable = true;
   time.timeZone = "America/New_York";
   i18n.defaultLocale = "en_US.UTF-8";
-
-  services.tailscale.enable = true;
-  networking.nftables.enable = true;
-  networking.firewall = {
-    enable = true;
-    trustedInterfaces = [ "tailscale0" ];
-    allowedUDPPorts = [ config.services.tailscale.port ];
-  };
-    systemd.services.tailscaled.serviceConfig.Environment = [
-    "TS_DEBUG_FIREWALL_MODE=nftables"
-  ];
 
 
   # Hardware services
