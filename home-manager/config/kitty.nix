@@ -2,11 +2,22 @@
 {
   programs.kitty = {
     enable = true;
+
+    # https://sw.kovidgoyal.net/kitty/faq/#how-do-i-specify-command-line-options-for-kitty-on-macos
+    darwinLaunchOptions = [
+      "--single-instance"
+    ];
+
     themeFile = "Nordfox";
+
     font = {
       name = "ComicCodeLigatures Nerd Font";
       size = 12;
     };
+    # font = {
+    #   name = "ProggyClean Nerd Font";
+    #   size = 18;
+    # };
     settings = {
       bold_font = "auto";
       italic_font = "auto";
