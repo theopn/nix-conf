@@ -32,5 +32,8 @@ Largely the Nix rewrite of my [original dotfiles repository](https://github.com/
 2. unlike my original dotfiles, prefer third-party tools
 3, only keep the features I use
 
-It's cross-platform other than some Linux specific tools (e.g., keychian)
+- `home-manager/home.nix`: setting user-level config and importing cross-platform tools
+- `home-manager/linux.nix`: importing Linux only tools (keychain, Niri, ...)
+- `home-manager/config`: all individual config files for programs/services.
+    Sub-directories are for non-Nix config; for example, `home-manager/config/lf` has `icons_colored` file from the [official repository](https://github.com/gokcehan/lf/blob/master/etc/icons_colored.example).
 
