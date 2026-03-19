@@ -36,10 +36,13 @@
     # order matters since both provides `clangd` command
     clang-tools clang
 
-    gimp vimiv-qt vlc
+    # Media tools
+    gimp vimiv-qt mpv
+    # uhh open source GUI tools
     libreoffice kicad zotero
-    vim
-    alacritty
+
+    # Keeping them in case of emergency
+    alacritty vim
   ];
 
   # default applications
@@ -56,7 +59,7 @@
 
       "text/*" = "neovide.desktop";
 
-      "video/*" = "vlc.desktop";
+      "video/*" = "mpv.desktop";
 
       "image/*" = [
         "vimiv.desktop"
