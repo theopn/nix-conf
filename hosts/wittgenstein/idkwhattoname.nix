@@ -37,7 +37,7 @@
     clang-tools clang
 
     gimp vimiv-qt vlc
-    kicad zotero
+    libreoffice kicad zotero
     vim
     alacritty
   ];
