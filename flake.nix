@@ -6,18 +6,23 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-darwin = {
-      url = "github:nix-darwin/nix-darwin/master";
+    nixvim = {
+      url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, nix-darwin, ...}:
+  outputs = { self, nixpkgs, nixos-hardware, nix-darwin, home-manager, nixvim, ... }:
   {
     darwinConfigurations.beauvoir = nix-darwin.lib.darwinSystem {
       system = "aarch64-darwin";
@@ -26,7 +31,12 @@
         home-manager.darwinModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.theopn = ./home-manager/home.nix;
+          home-manager.users.theopn = {
+            imports =[
+              nixvim.homeModules.nixvim
+              ./home-manager/home.nix
+            ];
+          };
         }
       ];
     };
@@ -41,6 +51,7 @@
           home-manager.useUserPackages = true;
           home-manager.users.theopn = {
             imports =[
+              nixvim.homeModules.nixvim
               ./home-manager/home.nix
               ./home-manager/linux.nix
             ];

@@ -30,8 +30,7 @@
 
     ./config/misc-pkgs.nix
 
-    # needs to be migrated to Nix
-    ./config/nvim.nix
+    ./nixvim/default.nix
   ];
 
   programs.man.generateCaches = lib.mkIf pkgs.stdenv.isDarwin false;
