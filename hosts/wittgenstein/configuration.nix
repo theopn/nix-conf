@@ -53,7 +53,7 @@
   environment.gnome.excludePackages = with pkgs; [
     gnome-calculator gnome-clocks simple-scan snapshot gnome-characters
     # Totem = video, loupe = image, evince = PDF
-    gnome-music evince gnome-font-viewer # totem loupe
+    gnome-music evince gnome-font-viewer totem loupe
     # baobab = disk usage
     baobab gnome-disk-utility gnome-system-monitor gnome-logs gnome-connections
     # geary = email

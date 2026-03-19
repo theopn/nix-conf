@@ -36,7 +36,7 @@
     # order matters since both provides `clangd` command
     clang-tools clang
 
-    vlc gimp
+    gimp vimiv-qt vlc
     kicad zotero
     vim
     alacritty
@@ -59,7 +59,7 @@
       "video/*" = "vlc.desktop";
 
       "image/*" = [
-        "org.gnome.Loupe.desktop"
+        "vimiv.desktop"
         "gimp.desktop"
       ];
 
