@@ -2,8 +2,6 @@
 {
   home.packages = with pkgs; [
     tree
-    git-filter-repo
-    poppler-utils       # actual poppler (pdftotext, etc.)
     exiftool
     openconnect
     #stow
@@ -23,7 +21,6 @@
     sqlite
     qemu
 
-    zathuraPkgs.zathura_pdf_poppler
     (texlive.combine {
      inherit (pkgs.texlive)
      scheme-small

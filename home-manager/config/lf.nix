@@ -40,6 +40,9 @@ let
 
 in
 {
+  home.packages = with pkgs; [
+    poppler-utils  # pdftotext
+  ];
 
   xdg.configFile."lf/icons".source = ./lf/icons;
 
