@@ -14,6 +14,7 @@
     ./plugins/colorschemes.nix
     ./plugins/mini.nix
     ./plugins/tabby.nix
+    ./plugins/fzf-lua.nix
     # ./plugins/utils.nix
     # ./plugins/git.nix
     # ./plugins/search.nix
