@@ -1,7 +1,7 @@
 {
   programs.nixvim = {
-    diagnostics = {
-      virtual_text = true;
+    diagnostic.settings = {
+      virtual_text = false;
       virtual_lines = { current_line = true; };
       float = { border = "rounded"; };
       underline = true;
@@ -30,6 +30,8 @@
         };
 
         extra = [
+          { mode = "n"; key = "K"; action.__raw = "function() vim.lsp.buf.hover({ border = 'rounded' }) end"; options.desc = "LSP Hover Doc"; }
+
           { mode = "n"; key = "gra"; action = "<cmd>FzfLua lsp_code_actions<CR>"; options.desc = "[G]oto Code [A]ctions"; }
           { mode = "n"; key = "grr"; action = "<cmd>FzfLua lsp_references<CR>"; options.desc = "[G]oto [R]eferences"; }
           { mode = "n"; key = "gri"; action = "<cmd>FzfLua lsp_implementations<CR>"; options.desc = "[G]oto [I]mplementation"; }
@@ -67,12 +69,6 @@
         end
       '';
     };
-
-    extraConfigLua = ''
-      vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-        border = "rounded",
-      })
-    '';
 
     userCommands = {
       LspInfo = {
