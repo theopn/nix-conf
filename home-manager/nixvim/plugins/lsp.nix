@@ -69,10 +69,10 @@
         ];
       };
 
-      # Injected directly into the LspAttach autocmd
+      # Nixvim supplies client argument, so
+      # `local client = vim.lsp.get_client_by_id(client_id)`
+      # is not necessary
       onAttach = ''
-        -- document highlight from kickstart.nvim
-        local client = vim.lsp.get_client_by_id(client_id)
         if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight, bufnr) then
           local hl_group = vim.api.nvim_create_augroup("TheovimLspHl", { clear = false })
 
