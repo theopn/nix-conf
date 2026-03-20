@@ -25,9 +25,11 @@ in
           menu = {
             border = border;
             winblend = winblend;
+            draw = {
+              # nvim-cmp like
+              columns.__raw = "{ { 'label', 'label_description', gap = 1 }, { 'kind_icon', 'kind' } },";
+            };
           };
-
-          draw.padding = 5;
 
           documentation = {
             auto_show = true;
@@ -49,8 +51,11 @@ in
 
         sources = {
           default = [ "lsp" "buffer" "snippets" "path" ];
-          providers.snippets.opts.friendly-snippets = true;
+          # enabled by default, also too lazy to look up actual name since its Hyphenated
+          #providers.snippets.opts.friendly_snippets = true;
         };
+
+        appearance.nerd_font_variant = "mono";
 
         keymap = {
           # enter preset gives: (https://cmp.saghen.dev/configuration/keymap.html)
