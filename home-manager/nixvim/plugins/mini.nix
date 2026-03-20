@@ -69,7 +69,7 @@
             { __raw = "require('mini.clue').gen_clues.windows()"; }
             { __raw = "require('mini.clue').gen_clues.z()"; }
           ];
-          
+
           window = {
             delay = 300;
             config = {
