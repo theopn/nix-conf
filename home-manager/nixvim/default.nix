@@ -4,6 +4,8 @@
   programs.nixvim = {
     enable = true;
     defaultEditor = true;
+
+    extraConfigLua = builtins.readFile ./neovide.lua;
   };
 
 
