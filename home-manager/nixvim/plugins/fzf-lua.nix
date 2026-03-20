@@ -49,10 +49,6 @@
         };
       };  # fzf-lua
 
-      extraConfigLua = ''
-        require("fzf-lua").register_ui_select()
-        '';
-
       keymaps = {
         "<leader><leader>" = { action = "buffers"; options.desc = "[ ] Search buffers"; };
         "<leader>." = { action = "oldfiles"; options.desc = "[.] Search oldfiles (dot repeat)"; };
@@ -73,6 +69,10 @@
         "<leader>gs" = { action = "git_status"; options.desc = "Search [G]it [S]tatus"; };
       };
     };
+
+    extraConfigLua = ''
+      require("fzf-lua").register_ui_select()
+      '';
 
     keymaps = [
       # prompt list of paraent directories -> launch fzf.files in the selected dir
