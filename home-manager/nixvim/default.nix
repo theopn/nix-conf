@@ -24,6 +24,7 @@
     ./plugins/todo-comments.nix
 
     # editing
+    ./plugins/lsp.nix
     ./plugins/treesitter.nix
     ./plugins/gitsigns.nix
     ./plugins/yanky.nix
