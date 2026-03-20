@@ -25,6 +25,7 @@
 
     # editing
     ./plugins/lsp.nix
+    ./plugins/blink-cmp.nix
     ./plugins/fidget.nix
     ./plugins/treesitter.nix
     ./plugins/gitsigns.nix
