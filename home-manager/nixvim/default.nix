@@ -9,7 +9,7 @@
   imports = [
     ./opts.nix
     ./autocmds.nix
-    #./cmds.nix
+    ./usercommands.nix
     ./keymaps.nix
     # ./plugins/ui.nix
     # ./plugins/utils.nix
