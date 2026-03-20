@@ -7,18 +7,18 @@
   };
 
   imports = [
+    # defaults
     ./opts.nix
     ./autocmds.nix
     ./usercommands.nix
     ./keymaps.nix
+
+    # UI
     ./plugins/colorschemes.nix
     ./plugins/mini.nix
     ./plugins/tabby.nix
+
     ./plugins/fzf-lua.nix
-    # ./plugins/utils.nix
-    # ./plugins/git.nix
-    # ./plugins/search.nix
-    # ./plugins/coding.nix
-    # ./plugins/lsp-cmp.nix
+    ./plugins/gitsigns.nix
   ];
 }
