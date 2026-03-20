@@ -17,8 +17,13 @@
     ./plugins/colorschemes.nix
     ./plugins/mini.nix
     ./plugins/tabby.nix
+    ./plugins/colorizer.nix
+    ./plugins/todo-comments.nix
 
     ./plugins/fzf-lua.nix
     ./plugins/gitsigns.nix
+
+    # language-specific
+    ./plugins/render-markdown.nix
   ];
 }
