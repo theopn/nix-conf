@@ -10,6 +10,7 @@ let
       amsmath amstex amsfonts
       enumitem minted soul hyperref framed
       tcolorbox import xcolor
+      geometry titlesec
 
       forest
 
@@ -20,6 +21,7 @@ let
 
       # font related
       sourcesanspro sourcecodepro sourceserifpro ly1
+      fontawesome
 
       scheme-small;
   };
@@ -53,7 +55,7 @@ in
         #   ];
         # };
 
-        view_method = "zathura";
+        view_method = "general";
       };
     };
   };
