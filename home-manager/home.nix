@@ -4,7 +4,6 @@
   xdg.enable = true;
 
   home.sessionVariables = {
-    DOT_DIR = "${config.home.homeDirectory}/dotfiles";
     THEOSHELL_TRASH_DIR = "${config.xdg.dataHome}/theoshell/trash";
     THEOSHELL_CDF_DIR = "${config.xdg.dataHome}/theoshell/cd-fav.txt";
   };
@@ -20,26 +19,48 @@
     ./config/ripgrep.nix
 
     # Terminal & Shell
+    ./config/fastfetch.nix
+    ./config/fish.nix
     ./config/kitty.nix
     ./config/starship.nix
     ./config/zsh.nix
-    ./config/fish.nix
-    ./config/fastfetch.nix
 
     # GUI tools
     ./config/librewolf.nix
     ./config/neovide.nix
     ./config/zathura.nix
 
-    ./config/misc-pkgs.nix
-
     # nixvim
     ./nixvim/default.nix
   ];
 
+  home.packages = with pkgs; [
+    # tools
+    tree
+    openconnect
+    #stow
+    #tmux
+    hugo
+    wget
+
+    # media
+    exiftool
+    figlet
+    ffmpeg
+    imagemagick
+
+    # dev
+    qemu
+    nodejs_24
+    python3
+    #r
+    cargo
+    rustc
+    sqlite
+  ];
+
   programs.man.generateCaches = lib.mkIf pkgs.stdenv.isDarwin false;
   programs.home-manager.enable = true;
-
 
   home.stateVersion = "26.05";
 }
