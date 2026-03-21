@@ -19,6 +19,7 @@
 
       # traditional title bar option
       "browser.tabs.inTitlebar" = 0;
+      "browser.uiCustomization.navBarWhenVerticalTabs" = ''["sidebar-button","forward-button","back-button","stop-reload-button","urlbar-container","vertical-spacer","unified-extensions-button"]'';
 
       # yeahhh i am not cut for some privacy features
       "privacy.clearOnShutdown.cookies" = false;
