@@ -5,6 +5,7 @@
   imports = [
     ./config/copyq.nix
     ./config/keychain.nix
+    ./config/zathura.nix
 
     # Niri
     ./config/dunst.nix

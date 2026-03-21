@@ -28,7 +28,6 @@
     # GUI tools
     ./config/librewolf.nix
     ./config/neovide.nix
-    ./config/zathura.nix
 
     # nixvim
     ./nixvim/default.nix

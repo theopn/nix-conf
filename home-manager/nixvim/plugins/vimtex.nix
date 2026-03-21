@@ -33,12 +33,14 @@ in
 
   programs.nixvim = {
     plugins.vimtex = {
-      zathuraPackage = pkgs.zathura;
       texlivePackage = myTexlive;
+      zathuraPackage = pkgs.zathura;
 
       enable = true;
 
       settings = {
+        view_method = if pkgs.stdenv.isDarwin then "skim" else "zathura";
+
         compiler_method = "latexmk";
         tex_flavor = "latex";
 
@@ -54,9 +56,8 @@ in
         #     "-interaction=nonstopmode"
         #   ];
         # };
-
-        view_method = "general";
       };
+
     };
   };
 }
