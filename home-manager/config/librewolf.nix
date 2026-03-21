@@ -17,9 +17,7 @@
       "sidebar.verticalTabs" = true;
       "sidebar.main.tools" = "";
 
-      # traditional title bar option
-      "browser.tabs.inTitlebar" = 0;
-      "browser.uiCustomization.navBarWhenVerticalTabs" = ''["sidebar-button","forward-button","back-button","stop-reload-button","urlbar-container","vertical-spacer","unified-extensions-button"]'';
+      "browser.tabs.inTitlebar" = 1;
 
       # yeahhh i am not cut for some privacy features
       "privacy.clearOnShutdown.cookies" = false;
@@ -28,6 +26,10 @@
       "privacy.clearOnShutdown_v2.cookiesAndStorage" = false;
       "privacy.clearSiteData.cookiesAndStorage" = false;
       "privacy.resistFingerprinting.letterboxing" = false;
+
+      "browser.startup.page" = 1;
+      "browser.startup.homepage" = "https://theopark.me/startpage";
+      "browser.newtabpage.enabled" = false;
     };
 
     policies = {
@@ -49,27 +51,22 @@
           installation_mode = "force_installed";
         };
         # Unhook
-        "myallychou@gmail.com" = { 
+        "myallychou@gmail.com" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/youtube-recommended-videos/latest.xpi";
           installation_mode = "force_installed";
         };
         # Nord
-        "{f4c9e1d6-6630-4600-ad50-d223eab7f3e7}" = { 
+        "{f4c9e1d6-6630-4600-ad50-d223eab7f3e7}" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/nord-firefox/latest.xpi";
           installation_mode = "force_installed";
         };
         # Tokyonight
-        "{4520dc08-80f4-4b2e-982a-c17af42e5e4d}" = { 
+        "{4520dc08-80f4-4b2e-982a-c17af42e5e4d}" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/tokyo-night-milav/latest.xpi";
           installation_mode = "force_installed";
         };
       };
     };
 
-    # profile settings seem to make build fails
-    # so do the following manually:
-    # 1. set the startup page
-    # 2. create 3 containers (google, social, and shopping)
-    # 3. sign in to sync for bookmark and open tabs
   };
 }
