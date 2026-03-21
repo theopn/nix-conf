@@ -7,6 +7,7 @@
   fonts.packages = with pkgs; [
     nerd-fonts.proggy-clean-tt
     nerd-fonts.fantasque-sans-mono
+    cantarell-fonts
     noto-fonts-cjk-sans  # for Korean input
   ];
 
