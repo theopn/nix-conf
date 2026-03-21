@@ -2,7 +2,7 @@
 
 {
   programs.nixvim = {
-    colorscheme = "nord";
+    colorscheme = "nordfox";
 
     colorschemes = {
       nightfox = {
@@ -14,7 +14,6 @@
         settings.style = "night";
       };
 
-      nord.enable = true;
       kanagawa.enable = true;
       onedark.enable = true;
     };
