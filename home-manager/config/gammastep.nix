@@ -19,7 +19,9 @@
     };
   };
 
-  # Manually trigger in Niri config, since systemd service completely breaks Gnome
-  systemd.user.services.gammastep.Install.WantedBy = lib.mkForce [ ];
-  systemd.user.services.gammastep-indicator.Install.WantedBy = lib.mkForce [ ];
+  systemd.user.services.gammastep = {
+    Install.wantedBy = lib.mkForce [ "niri.service" ];
+    Unit.BindsTo = [ "niri.service" ];
+    Unit.After = [ "niri.service" ];
+  };
 }

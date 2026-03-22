@@ -141,8 +141,13 @@ in
 {
   programs.waybar = {
     enable = true;
-    # In Gnome, it silently fails due to not having layer protocol
-    systemd.enable = true;
+
+    # make sure to launch niri with `niri-session` command
+    systemd = {
+      enable = true;
+      target = "niri.service";
+    };
+
 
     settings = {
       mainBar = {

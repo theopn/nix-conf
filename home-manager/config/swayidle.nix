@@ -3,13 +3,9 @@
 {
   services.swayidle = {
     enable = true;
-
     extraArgs = [ "-w" ];
 
-    # disable systemd service (for Gnome) by binding to no target.
-    # well so I thought, now launching Swayidle with Niri doesn't work,
-    # so I guess I will deal with some journalctl logs
-    #systemdTarget = "";
+    systemdTarget = "niri.service";
 
     events = {
       "before-sleep" = "${pkgs.swaylock}/bin/swaylock -f";

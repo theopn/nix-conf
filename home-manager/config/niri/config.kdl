@@ -100,9 +100,7 @@ layout {
 }
 
 // Misc
-// My regular config spawns dunst, waybar, nm-applet, copyq, fcitx5, and swayidle,
-// but they are not handled by NixOS
-spawn-at-startup "gammastep-indicator"
+// Handled by Nix: dunst, waybar, nm-applet, copyq, fcitx5, and swayidle,
 spawn-sh-at-startup "swaybg --mode fill --image ~/.local/share/theo-niri-assets/wallpaper.png"
 
 prefer-no-csd
