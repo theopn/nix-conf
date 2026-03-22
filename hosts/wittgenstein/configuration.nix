@@ -51,6 +51,8 @@
     useNautilus = true;
   };
   programs.dconf.enable = true;
+  # register swaylock to /etc/pam.d/
+  security.pam.services.swaylock = {};
 
 
   # Me
