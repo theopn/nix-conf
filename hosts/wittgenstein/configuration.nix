@@ -25,20 +25,21 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = false;
   services.blueman.enable = true;
-  # https://knowledgebase.frame.work/optimizing-fedora-battery-life-r1baXZh
-  services.tuned.enable = true;
-  services.tlp.enable = false;
-  services.upower.enable = true;
-  services.printing.enable = true;
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-  };
   services.libinput = {
     enable = true;
     touchpad.tapping = true;
     touchpad.naturalScrolling = true;
   };
+  # https://knowledgebase.frame.work/optimizing-fedora-battery-life-r1baXZh
+  services.tuned.enable = true;
+  services.tlp.enable = false;
+  services.upower.enable = true;
+  services.pipewire = {
+    enable = true;
+    pulse.enable = true;
+  };
+  services.printing.enable = true;
+  services.udisks2.enable = true;
 
 
   # Other services
