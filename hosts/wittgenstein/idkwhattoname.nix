@@ -11,7 +11,6 @@
     noto-fonts-cjk-sans  # for Korean input
   ];
 
-  programs.firefox.enable = true;
   programs.thunderbird.enable = true;
 
   services.syncthing = {
@@ -36,9 +35,6 @@
 
     # Propritery apps
     chromium discord slack spotify zoom-us
-
-    # Keeping them in case of emergency
-    alacritty vim
   ];
 
 
