@@ -1,6 +1,9 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, ... }:
 {
+  xdg.configFile."kitty/tab_bar.py".source = ./kitty/tab_bar.py;
+
   programs.kitty = {
+
     enable = true;
 
     # https://sw.kovidgoyal.net/kitty/faq/#how-do-i-specify-command-line-options-for-kitty-on-macos
@@ -10,14 +13,14 @@
 
     themeFile = "Nordfox";
 
-    font = {
-      name = "ComicCodeLigatures Nerd Font";
-      size = 12;
-    };
     # font = {
-    #   name = "ProggyClean Nerd Font";
-    #   size = 18;
+    #   name = "ComicCodeLigatures Nerd Font";
+    #   size = 12;
     # };
+    font = {
+      name = "ProggyClean Nerd Font";
+      size = 18;
+    };
     settings = {
       bold_font = "auto";
       italic_font = "auto";
@@ -44,10 +47,14 @@
       hide_window_decorations = "titlebar-only";
 
       tab_bar_edge = "bottom";
-      tab_bar_style = "powerline";
+      tab_bar_style = "custom";
       tab_powerline_style = "round";
       tab_bar_align = "center";
-      tab_bar_min_tabs = 0;
+      tab_bar_min_tabs = 1;
+      tab_separator = " ";
+      tab_title_max_length = 0;
+      tab_title_template = "";
+      active_tab_title_template = "";
 
       background_opacity = "0.90";
       background_blur = 30;
