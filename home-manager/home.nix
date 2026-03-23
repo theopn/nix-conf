@@ -17,6 +17,7 @@
     ./config/git.nix
     ./config/lf.nix
     ./config/ripgrep.nix
+    ./config/vim.nix
 
     # Terminal & Shell
     ./config/fastfetch.nix
