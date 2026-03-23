@@ -4,6 +4,9 @@
   xdg.enable = true;
 
   home.sessionVariables = {
+    XDG_SCREENSHOTS_DIR = "${config.home.homeDirectory}/Pictures";
+    XDG_PICTURES_DIR = "${config.home.homeDirectory}/Pictures";
+
     THEOSHELL_TRASH_DIR = "${config.xdg.dataHome}/theoshell/trash";
     THEOSHELL_CDF_DIR = "${config.xdg.dataHome}/theoshell/cd-fav.txt";
   };
