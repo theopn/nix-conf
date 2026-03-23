@@ -217,10 +217,23 @@ in
         };
 
         clock = {
-          timezone = "America/New_York";
-          tooltip-format = "<big>{:%Y-%m-%d %H:%M:%S}</big>\n<tt><small>{calendar}</small></tt>";
           format = "  {:%b %e %H:%M}";
-          format-alt = "  {:%Y-%m-%d %R}";
+
+          tooltip-format = "\t<big>{:%H:%M:%S}</big>\n\n<tt><small>{calendar}</small></tt>";
+
+          calendar = {
+            mode = "month";
+            mode-mon-col = 3;
+            weeks-pos = "left";
+            on-click-right = "mode";
+            iso-8601 = true;
+            format = {
+              weeks = "<span color='#d8dee9'><i>{}</i></span>";
+              today = "<span color='#b48ead'><b><u>{}</u></b></span>";
+            };
+          };
+
+          actions.on-click-right = "mode";
         };
 
         # modules-right
