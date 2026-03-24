@@ -28,12 +28,10 @@
     curl wget gcc gdb git killall
     gnumake zip unzip file jq
 
-    # Media tools
-    gimp vimiv-qt mpv
     # uhh open source GUI tools
-    libreoffice kicad zotero
+    gimp kicad libreoffice zotero
 
-    # Propritery apps
+    # Propritery
     chromium discord slack spotify zoom-us
   ];
 
@@ -55,7 +53,7 @@
       "video/*" = "mpv.desktop";
 
       "image/*" = [
-        "vimiv.desktop"
+        "imv.desktop"
         "gimp.desktop"
       ];
 
