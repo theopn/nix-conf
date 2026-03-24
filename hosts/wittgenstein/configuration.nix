@@ -30,16 +30,24 @@
     touchpad.tapping = true;
     touchpad.naturalScrolling = true;
   };
-  # https://knowledgebase.frame.work/optimizing-fedora-battery-life-r1baXZh
-  services.tuned.enable = true;
-  services.tlp.enable = false;
-  services.upower.enable = true;
   services.pipewire = {
     enable = true;
     pulse.enable = true;
   };
-  services.printing.enable = true;
+  services.printing = {
+    enable = true;
+    drivers = [ pkgs.cups-filters ];
+  };
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
   services.udisks2.enable = true;
+  # https://knowledgebase.frame.work/optimizing-fedora-battery-life-r1baXZh
+  services.tuned.enable = true;
+  services.tlp.enable = false;
+  services.upower.enable = true;
 
 
   # Other services
