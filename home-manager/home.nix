@@ -8,7 +8,6 @@
     XDG_PICTURES_DIR = "${config.home.homeDirectory}/Pictures";
 
     THEOSHELL_TRASH_DIR = "${config.xdg.dataHome}/theoshell/trash";
-    THEOSHELL_CDF_DIR = "${config.xdg.dataHome}/theoshell/cd-fav.txt";
   };
 
   imports = [
@@ -22,6 +21,7 @@
     ./config/lf.nix
     ./config/ripgrep.nix
     ./config/vim.nix
+    ./config/zoxide.nix
 
     # Terminal & Shell
     ./config/fastfetch.nix

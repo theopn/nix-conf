@@ -5,20 +5,24 @@
 
     shellAbbrs = {
       cl = "clear";
+
       ga = "git add";
       gcm = "git commit -m";
       gss = "git status";
-      v = "nvim";
+
       nv = "neovide --fork";
+      v = "nvim";
       weather = "curl 'https://wttr.in'";
+
+      # used in the `multicd` function below
       dotdot = {
         regex = "^\\.\\.+$";
         function = "multicd";
       };
     };
 
-    # Non expanding aliases like traditional shell
-    # no reason to use it, just included because why not
+    # Non-expanding aliases like traditional shell.
+    # long command can go here to declutter the terminal.
     shellAliases = {
       l = "eza -a -l --header --git --total-size --time-style iso --icons auto --color auto";
     };
@@ -49,6 +53,9 @@
         [ -n $num ]; and echo "$num files in $argv"
       '';
 
+      tarmake = "tar -czvf $argv[1].tar.gz $argv[1]";
+      tarunmake = "tar -zxvf $argv[1]";
+
       ln_resolve = {
         description = "Create a symlink using absolute path";
         body = ''
@@ -65,46 +72,6 @@
             echo "Symlink created: $target -> $source"
           end
           '';
-      };
-
-      tarmake = "tar -czvf $argv[1].tar.gz $argv[1]";
-      tarunmake = "tar -zxvf $argv[1]";
-
-      cdf = {
-          description = "[CDF] Directory Favorite/Bookmark using FZF";
-          body = ''
-            if not set -q THEOSHELL_CDF_DIR
-              echo 'You must provide THEOSHELL_CDF_DIR'
-              return 1
-            end
-
-            set -l dir (fzf --header="Favorite Directories" < $THEOSHELL_CDF_DIR)
-            not test -z $dir; and cd "$dir"
-          '';
-      };
-
-      cdf_add = {
-        description = "[CDF] Add CWD to the directory list";
-        body = ''
-          if not set -q THEOSHELL_CDF_DIR
-            echo 'You must provide THEOSHELL_CDF_DIR'
-            return 1
-          end
-
-          if not test -e $THEOSHELL_CDF_DIR
-            mkdir -p (dirname $THEOSHELL_CDF_DIR)
-            touch $THEOSHELL_CDF_DIR
-          end
-
-          pwd >> $THEOSHELL_CDF_DIR
-        '';
-      };
-
-      cdf_edit = {
-        description = "[CDF] Add CWD to the directory list";
-        body = ''
-          $EDITOR $THEOSHELL_CDF_DIR
-        '';
       };
 
       fish_greeting ={
