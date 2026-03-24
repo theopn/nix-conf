@@ -19,7 +19,7 @@
       gcm = "git commit -m";
       gss = "git status";
       histgrep = "echo '[Tip] Use !number to execute the command' && history -i | grep";
-      l = "ls -A -l -h --color=auto";
+      l = "eza -a -l --header --git --total-size --time-style iso --icons auto --color auto";
       nv = "neovide --fork";
       v = "nvim";
       manf = "compgen -c | fzf | xargs man";

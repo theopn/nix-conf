@@ -20,7 +20,7 @@
     # Non expanding aliases like traditional shell
     # no reason to use it, just included because why not
     shellAliases = {
-      l = "ls -A -l -h --color=auto";
+      l = "eza -a -l --header --git --total-size --time-style iso --icons auto --color auto";
     };
 
     functions = {

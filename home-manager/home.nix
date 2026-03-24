@@ -15,6 +15,7 @@
     # Tools
     ./config/bat.nix
     ./config/btop.nix
+    ./config/eza.nix
     ./config/fd.nix
     ./config/fzf.nix
     ./config/git.nix
