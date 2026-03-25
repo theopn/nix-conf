@@ -1,8 +1,8 @@
+RESET := $(shell tput sgr0)
 BOLD  := $(shell tput bold)
 RED   := $(shell tput setaf 1)
 GREEN := $(shell tput setaf 2)
 BLUE  := $(shell tput setaf 4)
-RESET := $(shell tput sgr0)
 
 .PHONY: update clean history beauvoir wittgenstein wittgenstein-switch wittgenstein-test wittgenstein-boot
 .DEFAULT_GOAL := $(shell hostname -s)
@@ -44,7 +44,7 @@ wittgenstein-test:
 		exit 1; \
 	fi
 	@echo "$(BOLD)$(BLUE)=====> Testing wittgenstein <=====$(RESET)"
-	sudo nixos-rebuild boot --flake .#wittgenstein
+	sudo nixos-rebuild test --flake .#wittgenstein
 
 wittgenstein-boot:
 	@if [ "$$(uname)" != "Linux" ]; then \
