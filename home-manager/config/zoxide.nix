@@ -6,5 +6,7 @@
 
     enableZshIntegration = true;
     enableFishIntegration = true;
+
+    options = [ "--cmd c" ];
   };
 }
