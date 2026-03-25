@@ -4,7 +4,7 @@ GREEN := $(shell tput setaf 2)
 BLUE  := $(shell tput setaf 4)
 RESET := $(shell tput sgr0)
 
-.PHONY: update clean history beauvoir wittgenstein wittgenstein-switch wittgenstein-boot
+.PHONY: update clean history beauvoir wittgenstein wittgenstein-switch wittgenstein-test wittgenstein-boot
 .DEFAULT_GOAL := $(shell hostname -s)
 
 # Utility commands
@@ -32,11 +32,19 @@ beauvoir:
 wittgenstein: wittgenstein-switch
 wittgenstein-switch:
 	@if [ "$$(uname)" != "Linux" ]; then \
-		echo "$(BOLD)$(RED)===== i mean come on =====$(RESET)"; \
+		echo "$(BOLD)$(RED)===== okay an honest mistake =====$(RESET)"; \
 		exit 1; \
 	fi
 	@echo "$(BOLD)$(BLUE)=====> Building wittgenstein (Framework 13 AMD 300 Series, NixOS) <=====$(RESET)"
 	sudo nixos-rebuild switch --flake .#wittgenstein
+
+wittgenstein-test:
+	@if [ "$$(uname)" != "Linux" ]; then \
+		echo "$(BOLD)$(RED)===== come on theo =====$(RESET)"; \
+		exit 1; \
+	fi
+	@echo "$(BOLD)$(BLUE)=====> Building and Staging wittgenstein <=====$(RESET)"
+	sudo nixos-rebuild boot --flake .#wittgenstein
 
 wittgenstein-boot:
 	@if [ "$$(uname)" != "Linux" ]; then \
