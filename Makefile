@@ -43,7 +43,7 @@ wittgenstein-test:
 		echo "$(BOLD)$(RED)===== come on theo =====$(RESET)"; \
 		exit 1; \
 	fi
-	@echo "$(BOLD)$(BLUE)=====> Building and Staging wittgenstein <=====$(RESET)"
+	@echo "$(BOLD)$(BLUE)=====> Testing wittgenstein <=====$(RESET)"
 	sudo nixos-rebuild boot --flake .#wittgenstein
 
 wittgenstein-boot:
@@ -51,5 +51,5 @@ wittgenstein-boot:
 		echo "$(BOLD)$(RED)===== okay no way i would make this mistake =====$(RESET)"; \
 		exit 1; \
 	fi
-	@echo "$(BOLD)$(BLUE)=====> Building and Staging wittgenstein <=====$(RESET)"
+	@echo "$(BOLD)$(BLUE)=====> Staging (next boot) wittgenstein <=====$(RESET)"
 	sudo nixos-rebuild boot --flake .#wittgenstein
