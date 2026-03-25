@@ -31,7 +31,7 @@
 
       # UI
       signcolumn = "yes";
-      scrolloff = 99;
+      scrolloff = 10;  # roughly 20-25 lines above/below, so 10 is good
       termguicolors = true;
       showtabline = 2;  # always show
       laststatus = 3;   # global statusline
