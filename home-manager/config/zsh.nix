@@ -3,6 +3,8 @@
   programs.zsh = {
     enable = true;
 
+    defaultKeymap = "viins";
+
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
@@ -30,9 +32,6 @@
     };
 
     initContent = ''
-      # Vim mode
-      bindkey -v
-      KEYTIMEOUT=1
       autoload -z edit-command-line
       zle -N edit-command-line
       bindkey "^X^E" edit-command-line
