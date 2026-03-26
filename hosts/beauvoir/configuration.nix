@@ -42,7 +42,7 @@ in
       NSAutomaticSpellingCorrectionEnabled = false;
 
       InitialKeyRepeat = 20;
-      KeyRepeat = 3;
+      KeyRepeat = 2;
     };
 
     spaces.spans-displays = true; # recommended to make Aerospace behave like i3
