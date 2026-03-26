@@ -31,10 +31,10 @@ require("tabby").setup({
       line.wins_in_tab(line.api.get_current_tab()).foreach(function(win)
         return {
           line.sep("", theme.win, theme.fill),
-          win.buf().file_icon(),
           win.is_current() and "" or "",
+          win.buf().file_icon(),
           win.buf_name(),
-          win.buf().is_changed() and "󱇧" or "",
+          win.buf().is_changed() and "" or "",
           line.sep("", theme.win, theme.fill),
           hl = theme.win,
           margin = " ",
@@ -42,7 +42,7 @@ require("tabby").setup({
       end),
       {
         line.sep("", theme.tail, theme.fill),
-        { "  ", hl = theme.tail },
+        { "  ", hl = theme.tail },
       },
       hl = theme.fill,
     }
