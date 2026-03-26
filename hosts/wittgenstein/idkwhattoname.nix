@@ -3,7 +3,6 @@
 
 {
 
-  # Packages and services
   fonts.packages = with pkgs; [
     nerd-fonts.proggy-clean-tt
     nerd-fonts.fantasque-sans-mono
@@ -12,16 +11,6 @@
   ];
 
   programs.thunderbird.enable = true;
-
-  services.syncthing = {
-    enable = true;
-    user = "theopn";
-    dataDir = "/home/theopn/Sync";
-    configDir = "/home/theopn/.config/syncthing";
-
-    overrideDevices = false;
-    overrideFolders = false;
-  };
 
   environment.systemPackages = with pkgs; [
     # paying the price for doing the minimal install
@@ -35,6 +24,18 @@
     chromium discord slack spotify zoom-us
   ];
 
+
+  # https://wiki.nixos.org/wiki/Tailscale
+  services.tailscale.enable = true;
+  networking.nftables.enable = true;
+  networking.firewall = {
+    enable = true;
+    trustedInterfaces = [ "tailscale0" ];
+    allowedUDPPorts = [ config.services.tailscale.port ];
+  };
+    systemd.services.tailscaled.serviceConfig.Environment = [
+    "TS_DEBUG_FIREWALL_MODE=nftables"
+  ];
 
   # default applications
   # ls -l /run/current-system/sw/share/applications/ /etc/profiles/per-user/${USER}/share/applications/
@@ -85,17 +86,5 @@
       };
     };
   };
-
-  # https://wiki.nixos.org/wiki/Tailscale
-  services.tailscale.enable = true;
-  networking.nftables.enable = true;
-  networking.firewall = {
-    enable = true;
-    trustedInterfaces = [ "tailscale0" ];
-    allowedUDPPorts = [ config.services.tailscale.port ];
-  };
-    systemd.services.tailscaled.serviceConfig.Environment = [
-    "TS_DEBUG_FIREWALL_MODE=nftables"
-  ];
 
 }

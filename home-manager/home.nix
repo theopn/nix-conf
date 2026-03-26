@@ -33,6 +33,7 @@
     # GUI tools
     ./config/librewolf.nix
     ./config/neovide.nix
+    ./config/syncthing.nix
 
     # nixvim
     ./nixvim/default.nix
