@@ -6,7 +6,7 @@
     ./config/copyq.nix
     ./config/imv.nix
     ./config/keychain.nix
-    #./config/mpv.nix
+    ./config/mpv.nix
     ./config/udiskie.nix
     ./config/zathura.nix
 
