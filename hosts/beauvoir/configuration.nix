@@ -34,24 +34,40 @@ in
     NSGlobalDomain = {
       AppleShowAllExtensions = true;
       AppleShowAllFiles = true;
+
+      NSAutomaticCapitalizationEnabled = false;
+      NSAutomaticDashSubstitutionEnabled = false;
+      NSAutomaticPeriodSubstitutionEnabled = false;
+      NSAutomaticQuoteSubstitutionEnabled = false;
+      NSAutomaticSpellingCorrectionEnabled = false;
+
+      InitialKeyRepeat = 20;
+      KeyRepeat = 3;
     };
+
+    spaces.spans-displays = true; # recommended to make Aerospace behave like i3
+
     dock = {
+      mru-spaces = false;         # required for Aerospace
+
       autohide = true;
       autohide-delay = 0.1;          # how long to hold the mouse
       autohide-time-modifier = 0.3;  # animation speed
       orientation = "left";
       persistent-apps = [
-      {
-        spacer = {
-          small = false;
-        };
-      }
+        {
+          spacer = {
+            small = true;
+          };
+        }
       ];
       persistent-others = [
+          { folder = "/Users/${saymyname}/Pictures"; }
           { folder = "/Users/${saymyname}/Downloads"; }
       ];
       showhidden = true;
     };
+
     finder = {
       AppleShowAllExtensions = true;
       AppleShowAllFiles = true;
@@ -61,8 +77,16 @@ in
       _FXShowPosixPathInTitle = true;
       _FXSortFoldersFirst = true;
     };
+
     screencapture = {
       type = "png";
+    };
+
+    CustomUserPreferences = {
+      "com.apple.desktopservices" = {
+        DSDontWriteNetworkStores = true;
+        DSDontWriteUSBStores = true;
+      };
     };
   };
 
