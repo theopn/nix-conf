@@ -48,7 +48,7 @@
       window_border_width = "1.0pt";
       window_margin_width = "5 5 3 5";
       inactive_text_alpha = "0.6";
-      hide_window_decorations = "titlebar-only";
+      hide_window_decorations = if pkgs.stdenv.isDarwin then "hide_window_decorations" else "no";
 
       tab_bar_edge = "bottom";
       tab_bar_style = "custom";
