@@ -145,7 +145,7 @@ in
     # make sure to launch niri with `niri-session` command
     systemd = {
       enable = true;
-      target = "niri.service";
+      targets = [ "niri.service" ];
     };
 
 

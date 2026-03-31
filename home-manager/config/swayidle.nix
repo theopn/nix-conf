@@ -5,7 +5,7 @@
     enable = true;
     extraArgs = [ "-w" ];
 
-    systemdTarget = "niri.service";
+    systemdTargets = [ "niri.service" ];
 
     events = {
       "before-sleep" = "${pkgs.swaylock}/bin/swaylock -f";
