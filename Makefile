@@ -4,7 +4,7 @@ RED   := $(shell tput setaf 1)
 GREEN := $(shell tput setaf 2)
 BLUE  := $(shell tput setaf 4)
 
-.PHONY: update clean history beauvoir wittgenstein wittgenstein-switch wittgenstein-test wittgenstein-boot
+.PHONY: update clean history diff beauvoir wittgenstein wittgenstein-switch wittgenstein-test wittgenstein-boot
 .DEFAULT_GOAL := $(shell hostname -s)
 
 # Utility commands
@@ -19,6 +19,11 @@ clean:
 history:
 	@echo "$(BOLD)$(GREEN)===== Showing system generation history =====$(RESET)"
 	nix profile history --profile /nix/var/nix/profiles/system
+
+diff:
+	@echo "$(BOLD)$(GREEN)===== Comparing last two generations =====$(RESET)"
+	@GENS=$$(ls -d /nix/var/nix/profiles/system-*-link | sort -V | tail -n 2); \
+	nix run nixpkgs#nvd -- diff $$GENS
 
 # hosts
 beauvoir:
