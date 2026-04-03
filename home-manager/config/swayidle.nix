@@ -22,12 +22,7 @@
         command = "${pkgs.swaylock}/bin/swaylock -f";
       }
       {
-        timeout = 420;
-        command = "${pkgs.niri}/bin/niri msg action power-off-monitors";
-        resumeCommand = "${pkgs.niri}/bin/niri msg action power-on-monitors";
-      }
-      {
-        timeout = 540;
+        timeout = 480;
         command = "${pkgs.systemd}/bin/systemctl suspend";
       }
     ];
