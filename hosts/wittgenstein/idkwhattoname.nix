@@ -18,10 +18,10 @@
     gnumake zip unzip file jq
 
     # uhh open source GUI tools
-    gimp kicad libreoffice zotero
+    brave gimp kicad libreoffice zotero
 
     # Propritery
-    chromium discord slack spotify zoom-us
+    discord slack spotify zoom-us
   ];
 
 
