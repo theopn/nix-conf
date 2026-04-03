@@ -33,6 +33,14 @@ let
       on_action=' Pause Notification'
       off_action=' Resume Notification'
 
+      if ! pgrep -x "dunst" > /dev/null && ! pgrep -x ".dunst-wrapped" > /dev/null; then
+        # -modi run to prevent loading other plugins
+        rofi -modi run -e 'Dunst not running :(' \
+          -theme-str 'window {height: 150px; width: 400px;}' \
+          -theme-str 'textbox {horizontal-align: 0.5; vertical-align: 0.5;}'
+        exit 1
+      fi
+
       current=' You are being disturbed'
       toggle="$on_action"
       if [[ $(dunstctl is-paused) == 'true' ]]; then
@@ -95,6 +103,16 @@ let
         -theme-str 'element-text {horizontal-align: 0.5;}'          \
         -mesg '[FYI] Dunst will pick the <i>oldest</i> notification with the same ID, which might not be this one.'
     }
+
+    ##### main execution #####
+
+    if ! pgrep -x "dunst" > /dev/null && ! pgrep -x ".dunst-wrapped" > /dev/null; then
+      # -modi run to prevent loading other plugins
+      rofi -modi run -e 'Dunst not running :(' \
+        -theme-str 'window {height: 150px; width: 400px;}' \
+        -theme-str 'textbox {horizontal-align: 0.5; vertical-align: 0.5;}'
+      exit 1
+    fi
 
     while true; do
       HIST_JSON=$(dunstctl history)
