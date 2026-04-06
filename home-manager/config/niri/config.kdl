@@ -195,16 +195,16 @@ binds {
     Shift+Print hotkey-overlay-title="Open Niri native screenshot" { screenshot; }
 
     // Function keys
-    XF86AudioRaiseVolume  allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0"; }
-    XF86AudioLowerVolume  allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
-    XF86AudioMute         allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioRaiseVolume  allow-when-locked=true { spawn "theo-volume-ctrl" "up"; }
+    XF86AudioLowerVolume  allow-when-locked=true { spawn "theo-volume-ctrl" "down"; }
+    XF86AudioMute         allow-when-locked=true { spawn "theo-volume-ctrl" "mute"; }
     XF86AudioMicMute      allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
     XF86AudioPlay         allow-when-locked=true { spawn-sh "playerctl play-pause"; }
     XF86AudioStop         allow-when-locked=true { spawn-sh "playerctl stop"; }
     XF86AudioPrev         allow-when-locked=true { spawn-sh "playerctl previous"; }
     XF86AudioNext         allow-when-locked=true { spawn-sh "playerctl next"; }
-    XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+5%"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "5%-"; }
+    XF86MonBrightnessUp   allow-when-locked=true { spawn "theo-brightness-ctrl" "up"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "theo-brightness-ctrl" "down"; }
 
     // Window manager
     Mod+O repeat=false { toggle-overview; }
