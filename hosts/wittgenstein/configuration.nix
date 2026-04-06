@@ -68,7 +68,7 @@
   programs.zsh.enable = true;
   users.users.theopn = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "input" ];
+    extraGroups = [ "wheel" "networkmanager" "input" "dialout" ];
     shell = pkgs.zsh;
   };
 
