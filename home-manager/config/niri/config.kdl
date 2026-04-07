@@ -103,7 +103,7 @@ layout {
 
 // Misc
 // Handled by Nix: dunst, waybar, nm-applet, copyq, fcitx5, and swayidle,
-spawn-sh-at-startup "swaybg --mode fill --image ~/.local/share/theo-niri-assets/wallpaper.png"
+spawn-sh-at-startup "swaybg --mode fill --image ~/.local/share/theoshell/sway/wallpaper.png"
 
 prefer-no-csd
 
@@ -125,10 +125,8 @@ animations { off; }
 
 
 // Named Workspaces
-workspace " "        // index 1, productivity tools
-workspace " "        // index 2, dev tools
-workspace " "        // index 3, Firefox
-workspace " "        // index 4, Thunderbird & social apps
+workspace " "        // index 1, Thunderbird & productivity apps
+workspace " "        // index 2: sort of a default work workspace
 
 
 // Window rules
