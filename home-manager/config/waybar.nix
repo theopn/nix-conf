@@ -185,9 +185,7 @@ in
           "clock"
         ];
         modules-right = [
-          "cpu"
           "temperature"
-          "memory"
           "mpris"
           "pulseaudio"
           "backlight"
@@ -219,7 +217,7 @@ in
         };
 
         "niri/window" = {
-          format = "{title}";
+          format = "{app_id}";
           max-length = 50;
           icon = true;
           swap-icon-label = false;
@@ -276,7 +274,7 @@ in
 
         mpris = {
           format = "{status_icon} {player_icon}";
-          format-paused = "<s>{status_icon} {player_icon}</s>";
+          format-paused = "{status_icon} {player_icon}";
           on-click-middle = "";
           on-click-right = "";
           player-icons = {
