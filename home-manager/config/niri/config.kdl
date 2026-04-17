@@ -125,8 +125,10 @@ animations { off; }
 
 
 // Named Workspaces
-workspace " "        // index 1, Thunderbird & productivity apps
-workspace " "        // index 2: sort of a default work workspace
+workspace " "        // index 1, Khal & Org-agenda
+workspace " "        // index 2: terminal
+workspace " "        // index 3: browser
+workspace " "        // index 4: Thunderbird & messaging
 
 
 // Window rules
