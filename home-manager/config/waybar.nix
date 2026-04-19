@@ -33,6 +33,14 @@ let
       on_action=' Pause Notification'
       off_action=' Resume Notification'
 
+      if ! pgrep -x "dunst" > /dev/null && ! pgrep -x ".dunst-wrapped" > /dev/null; then
+        # -modi run to prevent loading other plugins
+        rofi -modi run -e 'Dunst not running :(' \
+          -theme-str 'window {height: 150px; width: 400px;}' \
+          -theme-str 'textbox {horizontal-align: 0.5; vertical-align: 0.5;}'
+        exit 1
+      fi
+
       current=' You are being disturbed'
       toggle="$on_action"
       if [[ $(dunstctl is-paused) == 'true' ]]; then
@@ -96,6 +104,16 @@ let
         -mesg '[FYI] Dunst will pick the <i>oldest</i> notification with the same ID, which might not be this one.'
     }
 
+    ##### main execution #####
+
+    if ! pgrep -x "dunst" > /dev/null && ! pgrep -x ".dunst-wrapped" > /dev/null; then
+      # -modi run to prevent loading other plugins
+      rofi -modi run -e 'Dunst not running :(' \
+        -theme-str 'window {height: 150px; width: 400px;}' \
+        -theme-str 'textbox {horizontal-align: 0.5; vertical-align: 0.5;}'
+      exit 1
+    fi
+
     while true; do
       HIST_JSON=$(dunstctl history)
 
@@ -145,7 +163,7 @@ in
     # make sure to launch niri with `niri-session` command
     systemd = {
       enable = true;
-      target = "niri.service";
+      targets = [ "niri.service" ];
     };
 
 
@@ -167,9 +185,7 @@ in
           "clock"
         ];
         modules-right = [
-          "cpu"
           "temperature"
-          "memory"
           "mpris"
           "pulseaudio"
           "backlight"
@@ -201,7 +217,7 @@ in
         };
 
         "niri/window" = {
-          format = "{title}";
+          format = "{app_id}";
           max-length = 50;
           icon = true;
           swap-icon-label = false;
@@ -258,7 +274,7 @@ in
 
         mpris = {
           format = "{status_icon} {player_icon}";
-          format-paused = "<s>{status_icon} {player_icon}</s>";
+          format-paused = "{status_icon} {player_icon}";
           on-click-middle = "";
           on-click-right = "";
           player-icons = {
@@ -278,11 +294,15 @@ in
 
         pulseaudio = {
           format = "{icon} {volume}% {format_source}";
+
+          format-muted = "󰝟 {format_source}";
+
+          format-source = "";
+          format-source-muted = "󰍭";
+
           format-bluetooth = "󰗾 ({icon}) {volume}% {format_source}";
           format-bluetooth-muted = "󰗿 ({icon}) {format_source}";
-          format-muted = "󰝟 {format_source}";
-          format-source = " {volume}%";
-          format-source-muted = "";
+
           format-icons = {
             headphone = " ";
             hands-free = "󱡒 ";
@@ -290,7 +310,7 @@ in
             phone = " ";
             portable = " ";
             car = " ";
-            default = ["" "" ""];
+            default = ["󰕿" "󰖀" "󰕾"];
           };
           on-click = "pavucontrol";
         };

@@ -103,7 +103,7 @@ layout {
 
 // Misc
 // Handled by Nix: dunst, waybar, nm-applet, copyq, fcitx5, and swayidle,
-spawn-sh-at-startup "swaybg --mode fill --image ~/.local/share/theo-niri-assets/wallpaper.png"
+spawn-sh-at-startup "swaybg --mode fill --image ~/.local/share/theoshell/sway/wallpaper.png"
 
 prefer-no-csd
 
@@ -125,10 +125,10 @@ animations { off; }
 
 
 // Named Workspaces
-workspace " "        // index 1, productivity tools
-workspace " "        // index 2, dev tools
-workspace " "        // index 3, Firefox
-workspace " "        // index 4, Thunderbird & social apps
+workspace " "        // index 1, Khal & Org-agenda
+workspace " "        // index 2: terminal
+workspace " "        // index 3: browser
+workspace " "        // index 4: Thunderbird & messaging
 
 
 // Window rules
@@ -195,16 +195,16 @@ binds {
     Shift+Print hotkey-overlay-title="Open Niri native screenshot" { screenshot; }
 
     // Function keys
-    XF86AudioRaiseVolume  allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0"; }
-    XF86AudioLowerVolume  allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
-    XF86AudioMute         allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioRaiseVolume  allow-when-locked=true { spawn "theo-volume-ctrl" "up"; }
+    XF86AudioLowerVolume  allow-when-locked=true { spawn "theo-volume-ctrl" "down"; }
+    XF86AudioMute         allow-when-locked=true { spawn "theo-volume-ctrl" "mute"; }
     XF86AudioMicMute      allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
     XF86AudioPlay         allow-when-locked=true { spawn-sh "playerctl play-pause"; }
     XF86AudioStop         allow-when-locked=true { spawn-sh "playerctl stop"; }
     XF86AudioPrev         allow-when-locked=true { spawn-sh "playerctl previous"; }
     XF86AudioNext         allow-when-locked=true { spawn-sh "playerctl next"; }
-    XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+5%"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "5%-"; }
+    XF86MonBrightnessUp   allow-when-locked=true { spawn "theo-brightness-ctrl" "up"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "theo-brightness-ctrl" "down"; }
 
     // Window manager
     Mod+O repeat=false { toggle-overview; }

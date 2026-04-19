@@ -61,6 +61,11 @@
     cargo
     rustc
     sqlite
+
+    # Horrible name, but platformio = platformio-chrootenv = FHS wrapper for Linux
+    # Configuring udev rule doesn't seem to be necessary as long as `dialout` group is set
+    # https://docs.platformio.org/en/stable//core/installation/udev-rules.html
+    (if stdenv.isLinux then platformio else platformio-core)
   ];
 
   programs.man.generateCaches = lib.mkIf pkgs.stdenv.isDarwin false;

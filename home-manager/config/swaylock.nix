@@ -10,7 +10,7 @@ let
         exit 1
       fi
 
-      ASSETS_DIR="''${XDG_DATA_HOME:-$HOME/.local/share}/theo-niri-assets"
+      ASSETS_DIR="''${XDG_DATA_HOME:-$HOME/.local/share}/theoshell/sway"
       mkdir -p "$ASSETS_DIR"
       WALLPAPER="$ASSETS_DIR/wallpaper.png"
       LOCKSCREEN="$ASSETS_DIR/lockscreen.png"
@@ -53,7 +53,7 @@ in
       color = "39404F";
 
       # automatically generated when changing wallpaper with theo-set-wallpaper
-      image = "${config.home.homeDirectory}/.local/share/theo-niri-assets/lockscreen.png";
+      image = "${config.home.homeDirectory}/.local/share/theoshell/sway/lockscreen.png";
     };
   };
 }

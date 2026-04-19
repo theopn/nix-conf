@@ -23,43 +23,48 @@
   };
 
   outputs = { self, nixpkgs, nixos-hardware, nix-darwin, home-manager, nixvim, ... }:
+    let
+      mkHomeManager = username : {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.backupFileExtension = "hmbak";
+        home-manager.users."${username}" = {
+          imports =[
+            nixvim.homeModules.nixvim
+            ./home-manager/home.nix
+          ];
+        };
+      };
+    in
   {
+
     darwinConfigurations.beauvoir = nix-darwin.lib.darwinSystem {
       system = "aarch64-darwin";
+
       modules = [
         ./hosts/beauvoir/configuration.nix
-        home-manager.darwinModules.home-manager {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.backupFileExtension = "hm-bak";
-          home-manager.users.theopn = {
-            imports =[
-              nixvim.homeModules.nixvim
-              ./home-manager/home.nix
-            ];
-          };
-        }
+        home-manager.darwinModules.home-manager
+        (mkHomeManager "theopn")
       ];
+
     };
 
     nixosConfigurations.wittgenstein = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+
       modules = [
         nixos-hardware.nixosModules.framework-amd-ai-300-series
         ./hosts/wittgenstein/configuration.nix
-        home-manager.nixosModules.home-manager {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.backupFileExtension = "hm-bak";
+        home-manager.nixosModules.home-manager
+        (mkHomeManager "theopn")
+        {
           home-manager.users.theopn = {
-            imports =[
-              nixvim.homeModules.nixvim
-              ./home-manager/home.nix
-              ./home-manager/linux.nix
-            ];
+            imports =[ ./home-manager/linux.nix ];
           };
         }
       ];
+
     };
+
   };
 }
