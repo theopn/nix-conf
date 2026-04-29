@@ -53,6 +53,7 @@
     ffmpeg
     figlet
     imagemagick
+    pandoc
 
     # dev
     nodejs_24
