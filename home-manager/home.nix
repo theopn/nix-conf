@@ -21,7 +21,6 @@
     ./config/lf.nix
     ./config/neovide.nix
     ./config/ripgrep.nix
-    ./config/syncthing.nix
     ./config/vim.nix
     ./config/zoxide.nix
 

@@ -7,6 +7,7 @@
     ./config/imv.nix
     ./config/keychain.nix
     ./config/mpv.nix
+    ./config/syncthing.nix
     ./config/udiskie.nix
     ./config/zathura.nix
 
