@@ -14,7 +14,7 @@ in
       # name = "docker-desktop";
       # args = { appdir = externalAppDir };
       #}
-      "kicad"
+      #"kicad"
 
       # Fun & Media
       "gimp"

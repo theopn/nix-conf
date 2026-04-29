@@ -26,8 +26,12 @@
     # Propritery
     discord slack spotify zoom-us
 
+    ### -------------------------------- ###
+    ### packages that are no longer used ###
+    ### -------------------------------- ###
+
     # CS489 stuff
-    arduino-ide kicad
+    #arduino-ide kicad
   ];
 
 
