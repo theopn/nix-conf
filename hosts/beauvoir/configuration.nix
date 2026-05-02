@@ -62,7 +62,6 @@ in
         }
       ];
       persistent-others = [
-          { folder = "/Users/${saymyname}/Pictures"; }
           { folder = "/Users/${saymyname}/Downloads"; }
       ];
       showhidden = true;
@@ -79,7 +78,8 @@ in
     };
 
     screencapture = {
-      type = "png";
+      type = "jpg";
+      location = "/Users/${saymyname}/Downloads";
     };
 
     CustomUserPreferences = {
