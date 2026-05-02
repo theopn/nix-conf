@@ -45,7 +45,7 @@ in
       # name = "filen";
       # args = { appdir = externalAppDir };
       #}
-      "syncthing"
+      "syncthing-app"
 
       # System
       "jordanbaird-ice"
