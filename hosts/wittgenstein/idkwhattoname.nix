@@ -23,6 +23,9 @@
     # Libreoffice
     libreoffice hunspell hunspellDicts.en_US
 
+    # Podman
+    podman-compose podman-tui
+
     # Propritery
     discord slack spotify zoom-us
 
@@ -94,6 +97,16 @@
           "Groups/0/Items/1".Name = "hangul";
         };
       };
+    };
+  };
+
+  # Podman
+  virtualisation = {
+    containers.enable = true;
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
     };
   };
 
