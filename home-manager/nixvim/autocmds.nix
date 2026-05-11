@@ -9,6 +9,12 @@
         callback.__raw = "function() vim.hl.on_yank({ timeout = 300, }) end";
       }
 
+      {
+        event = [ "TermOpen" "BufEnter" ];
+        pattern = [ "term://*" ];
+        callback.__raw = "function() vim.cmd('startinsert') end";
+      }
+
       # spellings
       {
         event = [ "FileType" ];
