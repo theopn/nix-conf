@@ -66,8 +66,8 @@ in
       "window" = {
         location = mkLiteral "center";
         anchor = mkLiteral "center";
-        transparency = "screenshot";
-        padding = mkLiteral "10px";
+        transparency = "real";
+        padding = mkLiteral "0px";
         border = mkLiteral "0px";
         border-radius = mkLiteral "6px";
         background-color = mkLiteral "@transparent";
