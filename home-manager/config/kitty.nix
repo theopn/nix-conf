@@ -62,6 +62,7 @@
       active_tab_title_template = "";
 
       background_opacity = "0.90";
+      background_blur = 30;
       dynamic_background_opacity = "yes";
 
       shell = "${pkgs.fish}/bin/fish --login --interactive";

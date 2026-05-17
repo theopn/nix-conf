@@ -4,7 +4,10 @@
   programs.mpv = {
     enable = true;
 
-    scripts = with pkgs.mpvScripts; [ mpris ];
+    package = pkgs.mpv.override {
+      youtubeSupport = false;
+      scripts = [ pkgs.mpvScripts.mpris ];
+    };
 
     config = {
       profile = "gpu-hq";

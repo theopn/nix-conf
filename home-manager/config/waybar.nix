@@ -200,13 +200,6 @@ in
         # modules-left
         "niri/workspaces" = {
           format = "{index}:{name}";
-          format-icons = {
-            default = "";
-            productivity = " ";
-            dev = " ";
-            browser = " ";
-            social = " ";
-          };
         };
 
         "custom/niri-workspace-rename" = {
@@ -253,20 +246,6 @@ in
         };
 
         # modules-right
-        cpu = {
-          interval = 15;
-          format = "{icon} {usage}%";
-          format-icons = "";
-          tooltip = false;
-        };
-
-        memory = {
-          interval = 15;
-          format = "{icon} {percentage}%";
-          format-icons = "";
-          tooltip-format = "{used} used out of {total}";
-        };
-
         temperature = {
           format = "{icon} {temperatureC}°C";
           format-icons = "";
@@ -420,7 +399,7 @@ in
 
     window#waybar {
       margin: 10px 10px;
-      background: rgba(46, 52, 64, 0.7);  /* @color00 */
+      background: rgba(46, 52, 64, 0.8);  /* @color00 */
       color: @color06;
     }
 
@@ -478,7 +457,7 @@ in
 
     /* Modules - Right */
 
-    #disk, #temperature, #cpu, #memory, #network,
+    #temperature,
     #mpris, #pulseaudio,
     #backlight, #battery, #power-profiles-daemon, #idle_inhibitor,
     #tray

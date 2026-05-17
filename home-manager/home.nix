@@ -21,7 +21,6 @@
     ./config/lf.nix
     ./config/neovide.nix
     ./config/ripgrep.nix
-    ./config/syncthing.nix
     ./config/vim.nix
     ./config/zoxide.nix
 
@@ -53,6 +52,7 @@
     ffmpeg
     figlet
     imagemagick
+    pandoc
 
     # dev
     nodejs_24
@@ -65,7 +65,8 @@
     # Horrible name, but platformio = platformio-chrootenv = FHS wrapper for Linux
     # Configuring udev rule doesn't seem to be necessary as long as `dialout` group is set
     # https://docs.platformio.org/en/stable//core/installation/udev-rules.html
-    (if stdenv.isLinux then platformio else platformio-core)
+    # I am not sure if I will ever use this again after CS489
+    #(if stdenv.isLinux then platformio else platformio-core)
   ];
 
   programs.man.generateCaches = lib.mkIf pkgs.stdenv.isDarwin false;

@@ -23,11 +23,18 @@
     # Libreoffice
     libreoffice hunspell hunspellDicts.en_US
 
+    # Podman
+    podman-compose podman-tui
+
     # Propritery
     discord slack spotify zoom-us
 
+    ### -------------------------------- ###
+    ### packages that are no longer used ###
+    ### -------------------------------- ###
+
     # CS489 stuff
-    arduino-ide kicad
+    #arduino-ide kicad
   ];
 
 
@@ -90,6 +97,16 @@
           "Groups/0/Items/1".Name = "hangul";
         };
       };
+    };
+  };
+
+  # Podman
+  virtualisation = {
+    containers.enable = true;
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
     };
   };
 

@@ -138,7 +138,7 @@ debug {
     honor-xdg-activation-with-invalid-serial
 }
 
-// better than setting colume width since I can use Mod+F
+// better than setting colume width to 100 since I can use Mod+F
 window-rule {
     open-maximized true
 }
@@ -149,19 +149,11 @@ window-rule {
     default-column-width {}
 }
 
+// pip
 window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     match app-id=r#"librewolf$"# title="^Picture-in-Picture$"
     open-floating true
-}
-
-/-window-rule {
-    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
-    match app-id=r#"^org\.gnome\.World\.Secrets$"#
-
-    block-out-from "screen-capture"
-    // Use this instead if you want them visible on third-party screenshot tools.
-    // block-out-from "screencast"
 }
 
 // Rounded corners
@@ -170,6 +162,7 @@ window-rule {
     clip-to-geometry true
 }
 
+// small windows
 window-rule {
     // note that home-manager installed packages do not follow the name
     match app-id="^copyq$"
@@ -180,6 +173,16 @@ window-rule {
     default-column-width { fixed 700; }
     default-window-height { fixed 700; }
 }
+
+// waybar & rofi blur; $ niri msg layers
+layer-rule {
+    match namespace="^rofi$"
+    match namespace="waybar"
+    background-effect {
+        blur true
+    }
+}
+
 
 // Keybindings
 binds {

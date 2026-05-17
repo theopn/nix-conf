@@ -14,7 +14,7 @@ in
       # name = "docker-desktop";
       # args = { appdir = externalAppDir };
       #}
-      "kicad"
+      #"kicad"
 
       # Fun & Media
       "gimp"
@@ -45,6 +45,7 @@ in
       # name = "filen";
       # args = { appdir = externalAppDir };
       #}
+      "syncthing-app"
 
       # System
       "jordanbaird-ice"
