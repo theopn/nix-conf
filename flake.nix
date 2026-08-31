@@ -89,7 +89,7 @@
               imports = with self.modules.nixos; [
                 nixos-base fonts
                 # modules/linux
-                fcitx printing podman tailscale udisks2 xdg-mime
+                fcitx keyring printing podman tailscale udisks2 xdg-mime
                 # modules/wm
                 dconf niri swaylock
               ];
@@ -115,11 +115,11 @@
                 syncthing
 
                 # modules/linux
-                easyeffects keychain nm-applet mate-polkit udiskie xdg-mime
+                easyeffects keychain keyring nm-applet portal mate-polkit udiskie xdg-mime
                 # modules/wm
                 cliphist dconf dunst gammastep
                 niri { _module.args = { niriOutput = "eDP-1"; niriScale = 1.67; }; }
-                portal rofi swayidle swaylock theme waybar
+                rofi swayidle swaylock theme waybar
                 # modules/media
                 mpv imv zathura
               ];
