@@ -7,8 +7,8 @@
         # Try password first
         auth sufficient pam_unix.so try_first_pass likeauth nullok nodelay
         # Then fprintd
-        #auth sufficient ${pkgs.fprintd}/lib/security/pam_fprintd.so max-tries=1 timeout=5
-        auth sufficient pam_fprintd.so
+        auth sufficient ${pkgs.fprintd}/lib/security/pam_fprintd.so max-tries=1 timeout=5
+        #auth sufficient pam_fprintd.so
         # Fallback
         auth include login
       '';
