@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.rofi = { config, pkgs, lib, ... }:
+  flake.modules.homeManager.rofi = { config, pkgs, ... }:
     let
       inherit (config.lib.formats.rasi) mkLiteral;
     in
@@ -10,16 +10,16 @@
 
       plugins = [ pkgs.rofi-calc ];
 
-      font = "ProggyClean Nerd Font 18";
-      terminal = "${pkgs.kitty}/bin/kitty";
+      settings = {
+        modes = [
+          "drun"
+          "window"
+          "calc"
+        ];
 
-      modes = [
-        "drun"
-        "window"
-        "calc"
-      ];
+        terminal = "${pkgs.kitty}/bin/kitty";
+        font = "ProggyClean Nerd Font 18";
 
-      extraConfig = {
         kb-row-up = "Up,Control+k,Shift+Tab,Shift+ISO_Left_Tab";
         kb-row-down = "Down,Control+j";
         kb-accept-entry = "Control+m,Return,KP_Enter";
