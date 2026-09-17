@@ -13,7 +13,10 @@
       packages = with pkgs; [
         ubuntu-sans
         ubuntu-sans-mono
+
         liberation_ttf
+        corefonts       # Microsoft bad but I love Comic sans
+
         noto-fonts-cjk-sans  # for Korean input
       ];
       fontDir.enable = true;
