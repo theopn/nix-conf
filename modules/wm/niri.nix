@@ -12,9 +12,9 @@
       nautilus
       # just in case
       vim
-      # both mentioned in the _niri-scripts.nix, but this ensures that
-      # I can still change volume & brightness even if the scripts break
-      brightnessctl wireplumber
+      # all mentioned in the _niri-scripts.nix, but this ensures that
+      # I can still do system maintenance even if the scripts break
+      brightnessctl wireplumber wl-clipboard
     ];
   };
 
