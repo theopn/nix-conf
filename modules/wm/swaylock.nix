@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.swaylock = {
+  flake.modules.nixos.swaylock = { pkgs, ... }: {
     # register swaylock with PAM
     # https://www.reddit.com/r/NixOS/comments/16oiazf/swaylock_fprintd_fingerprint_reader_issues/
     security.pam.services.swaylock = {
@@ -7,14 +7,15 @@
         # Try password first
         auth sufficient pam_unix.so try_first_pass likeauth nullok nodelay
         # Then fprintd
-        auth sufficient pam_fprintd.so
+        auth sufficient ${pkgs.fprintd}/lib/security/pam_fprintd.so max-tries=1 timeout=5
+        #auth sufficient pam_fprintd.so
         # Fallback
         auth include login
       '';
     };
   };
 
-  flake.modules.homeManager.swaylock = { config, lib, pkgs, ... }:
+  flake.modules.homeManager.swaylock = { config, pkgs, ... }:
     let
       theo-set-wallpaper = pkgs.writeShellApplication {
         name = "theo-set-wallpaper";

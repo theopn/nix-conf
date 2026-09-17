@@ -8,11 +8,5 @@
       ];
       config.common.default = [ "gnome" "gtk" ];
     };
-
-    services.gnome-keyring = {
-      enable = true;
-      # SSH keys are managed with `keychain` so no need for that
-      components = [ "secrets" ];
-    };
   };
 }

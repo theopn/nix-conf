@@ -68,7 +68,7 @@
                 neovide vim
                 # modules/shell
                 fish starship zsh
-                kitty { theo.kitty.font = { name = "ProggyClean Nerd Font"; size = 20; }; }
+                kitty { _module.args = { kittyFontName = "ProggyClean Nerd Font"; kittyFontSize = 22; }; }
                 # modules/web
                 syncthing
 
@@ -89,7 +89,7 @@
               imports = with self.modules.nixos; [
                 nixos-base fonts
                 # modules/linux
-                fcitx printing podman tailscale udisks2 xdg-mime
+                fcitx keyring printing podman tailscale udisks2 xdg-mime
                 # modules/wm
                 dconf niri swaylock
               ];
@@ -108,16 +108,18 @@
                 # modules/editor
                 neovide vim
                 # modules/shell
-                fish kitty starship zsh
+                fish
+                kitty { _module.args = { kittyFontName = "FantasqueSansM Nerd Font"; kittyFontSize = 16; }; }
+                starship zsh
                 # modules/web
                 syncthing
 
                 # modules/linux
-                easyeffects keychain nm-applet mate-polkit udiskie xdg-mime
+                easyeffects keychain keyring nm-applet portal mate-polkit udiskie xdg-mime
                 # modules/wm
                 cliphist dconf dunst gammastep
-                niri { _module.args = { myOutput = "eDP-1"; myScale = 1.67; }; }
-                portal rofi swayidle swaylock theme waybar
+                niri { _module.args = { niriOutput = "eDP-1"; niriScale = 1.67; }; }
+                rofi swayidle swaylock theme waybar
                 # modules/media
                 mpv imv zathura
               ];
