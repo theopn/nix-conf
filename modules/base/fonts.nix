@@ -11,10 +11,14 @@
   flake.modules.nixos.fonts = { pkgs, ... }: {
     fonts = {
       packages = with pkgs; [
+        # essays
+        eb-garamond
+
+        # UI elements
         ubuntu-sans
         ubuntu-sans-mono
 
-        liberation_ttf
+        liberation_ttf  # for Libreoffice
         corefonts       # Microsoft bad but I love Comic sans
 
         noto-fonts-cjk-sans  # for Korean input
