@@ -28,7 +28,7 @@
             id = "theo-waybar-niri";
             layer = "top";
             position = "top";
-            height = 34;
+            height = 30;
             spacing = 1;
 
             modules-left= [
