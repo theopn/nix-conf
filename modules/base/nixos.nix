@@ -1,7 +1,15 @@
 {
 
   # packages, variables, and fallthrough NixOS settings
-  flake.modules.nixos.nixos-base = { pkgs, ... }: {
+  flake.modules.nixos.nixos-base = { pkgs, inputs, ... }:
+    # See https://github.com/NixOS/nixpkgs/issues/568692
+    let
+      pkgs-zotero = import inputs.nixpkgs-zotero {
+        inherit (pkgs.stdenv.hostPlatform) system;
+        config.allowUnfree = true;
+      };
+    in
+    {
     programs.firefox.enable = true;
     programs.thunderbird.enable = true;
 
@@ -11,7 +19,7 @@
       gnumake zip unzip file jq
 
       # uhh open source GUI tools
-      brave gimp zotero
+      brave gimp pkgs-zotero.zotero
 
       # Libreoffice
       libreoffice hunspell hunspellDicts.en_US

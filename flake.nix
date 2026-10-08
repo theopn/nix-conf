@@ -21,9 +21,12 @@
     # For the Dendritic pattern
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
+
+    # Temporary, see: https://github.com/NixOS/nixpkgs/issues/568692
+    nixpkgs-zotero.url = "github:nixos/nixpkgs/4975466d324710c576dc11ad614684e6bd8cad8e";
   };
 
-  outputs = inputs@{ self, nixpkgs, nixos-hardware, nix-darwin, home-manager, ... }:
+  outputs = inputs@{ self, nixpkgs, nixos-hardware, nix-darwin, home-manager, nixpkgs-zotero, ... }:
     let
       # scanned modules from import-tree
       dendriticModules = inputs.flake-parts.lib.mkFlake { inherit inputs; } (
