@@ -1,17 +1,16 @@
 {
 
   # packages, variables, and fallthrough NixOS settings
-  flake.modules.nixos.nixos-base = { pkgs, inputs, ... }:
-    # See https://github.com/NixOS/nixpkgs/issues/568692
-    let
-      pkgs-zotero = import inputs.nixpkgs-zotero {
-        inherit (pkgs.stdenv.hostPlatform) system;
-        config.allowUnfree = true;
-      };
-    in
-    {
+  flake.modules.nixos.nixos-base = { pkgs, ... }:
+  {
     programs.firefox.enable = true;
     programs.thunderbird.enable = true;
+
+    # TODO: Keep until Zotero 11 lands
+    # See: https://github.com/NixOS/nixpkgs/pull/572466
+    nixpkgs.config.permittedInsecurePackages = [
+      "firefox-esr-140-bin-unwrapped-140.17.0esr"
+    ];
 
     environment.systemPackages = with pkgs; [
       # paying the price for doing the minimal install
@@ -19,7 +18,7 @@
       gnumake zip unzip file jq
 
       # uhh open source GUI tools
-      brave gimp pkgs-zotero.zotero
+      brave gimp zotero
 
       # Libreoffice
       libreoffice hunspell hunspellDicts.en_US
