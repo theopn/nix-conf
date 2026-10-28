@@ -18,6 +18,7 @@ let
     kvoptions etoolbox tabto-ltx totcount tikzmark
 
     # font related
+    courier charter
     sourcesanspro sourcecodepro sourceserifpro ly1
     fontawesome
   ]);
