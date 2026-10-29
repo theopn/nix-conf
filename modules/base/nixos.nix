@@ -1,9 +1,16 @@
 {
 
   # packages, variables, and fallthrough NixOS settings
-  flake.modules.nixos.nixos-base = { pkgs, ... }: {
+  flake.modules.nixos.nixos-base = { pkgs, ... }:
+  {
     programs.firefox.enable = true;
     programs.thunderbird.enable = true;
+
+    # TODO: Keep until Zotero 11 lands
+    # See: https://github.com/NixOS/nixpkgs/pull/572466
+    nixpkgs.config.permittedInsecurePackages = [
+      "firefox-esr-140-bin-unwrapped-140.17.0esr"
+    ];
 
     environment.systemPackages = with pkgs; [
       # paying the price for doing the minimal install
