@@ -145,11 +145,6 @@ The following files are not reproduced by Nix:
 
 Any other files on my system simply do not exist to me (at least mentally).
 
-> *It’s all a "fugayzi", you know what a fugayzi is?*
->
 > *Fugayzi, fugazi. It's a whazy. It's a woozy. It's fairy dust.*
-> *It doesn't exist. It's never landed. It is no matter. It's not on the elemental chart.*
+> ...
 > *It's not f\*\*\*ing real!*
->
-> -- Matthew McConaughey as Mark Hanna, *The Wolf of Wall Street*
-
