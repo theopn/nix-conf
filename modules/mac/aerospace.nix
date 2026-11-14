@@ -1,5 +1,5 @@
 {
-  flake.modules.darwin.aerospace = { pkgs, ... }: {
+  flake.modules.darwin.aerospace = {
     services.aerospace = {
       enable = true;
       settings = {
@@ -24,7 +24,12 @@
 
         mode.main.binding = {
           "alt-shift-space" = "layout floating tiling";
-          "alt-enter" = "exec-and-forget ${pkgs.kitty}/bin/kitty";
+          # Two issues with the line below:
+          # 1. Using `kitty` command to launch Kitty is very slow for some reason.
+          # 2. It creates a new, separate instance of Kitty .
+          #"alt-enter" = "exec-and-forget ${pkgs.kitty}/bin/kitty";
+          # This is better.
+          "alt-enter" = "exec-and-forget open -n ~/Applications/Home\\ Manager\\ Apps/kitty.app/";
 
           "alt-e" = "layout tiles horizontal vertical";
           "alt-w" = "layout accordion horizontal vertical";
