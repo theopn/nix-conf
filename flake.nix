@@ -89,10 +89,12 @@
               imports = with self.modules.nixos; [
                 nixos-base fonts
                 # modules/linux
-                fcitx keyring printing podman udisks2
+                fcitx keyring printing udisks2
                 # modules/wm
                 dconf niri swaylock
 
+                # modules/dev
+                podman
                 # modules/web
                 localsend tailscale
               ];
