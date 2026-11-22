@@ -92,6 +92,9 @@
                 fcitx keyring printing podman tailscale udisks2
                 # modules/wm
                 dconf niri swaylock
+
+                # modules/web
+                localsend
               ];
             }
 
