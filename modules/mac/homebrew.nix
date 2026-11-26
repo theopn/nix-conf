@@ -67,6 +67,7 @@
           #}
           "discord"
           "firefox"
+          "localsend"
           "tailscale-app"
           "thunderbird"
         ];
